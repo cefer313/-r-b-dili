@@ -1,0 +1,641 @@
+<title>Ərəbcə Cins və Hallar</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Rubik:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a colour-coded workbook — one colour per gender, one per case, carried through every rule, table and exercise */
+:root {
+  --bg: #f3f6fa; --surface: #ffffff; --ink: #1b2333; --muted: #5d6779; --line: #dde3ec;
+  --band: #1d2a48; --band-ink: #ffffff; --band-muted: #b9c4dc;
+  --masc: #2563c9; --masc-soft: #e2ecfb;
+  --fem: #c93a6e; --fem-soft: #fbe3ec;
+  --raf: #17885b; --raf-soft: #daf2e7;
+  --nasb: #c27408; --nasb-soft: #fcefd6;
+  --jarr: #7246c9; --jarr-soft: #ebe3fa;
+  --ok: #17885b; --bad: #c8343b; --bad-soft: #fbe2e3;
+  --ui: 'Rubik', system-ui, sans-serif;
+  --arabic: 'Amiri', 'Noto Naskh Arabic', 'Traditional Arabic', serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11161f; --surface: #1a212d; --ink: #e7ecf4; --muted: #9aa5b8; --line: #2c3545;
+  --band: #0c1220; --band-ink: #f2f5fb; --band-muted: #8f9cb7;
+  --masc: #7aa7f0; --masc-soft: #1d2c46; --fem: #f07ea6; --fem-soft: #3d1f2c;
+  --raf: #56c99a; --raf-soft: #15352a; --nasb: #f0b04f; --nasb-soft: #3a2b12;
+  --jarr: #ab8cf0; --jarr-soft: #2b2244; --ok: #56c99a; --bad: #f07a7f; --bad-soft: #3e1d20;
+  color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #11161f; --surface: #1a212d; --ink: #e7ecf4; --muted: #9aa5b8; --line: #2c3545;
+  --band: #0c1220; --band-ink: #f2f5fb; --band-muted: #8f9cb7;
+  --masc: #7aa7f0; --masc-soft: #1d2c46; --fem: #f07ea6; --fem-soft: #3d1f2c;
+  --raf: #56c99a; --raf-soft: #15352a; --nasb: #f0b04f; --nasb-soft: #3a2b12;
+  --jarr: #ab8cf0; --jarr-soft: #2b2244; --ok: #56c99a; --bad: #f07a7f; --bad-soft: #3e1d20;
+  color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--ui); font-size: 16px; line-height: 1.6; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--band); }
+.wrap { max-width: 980px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { text-wrap: balance; line-height: 1.25; margin: 0; }
+p { margin: 0; }
+.ar { font-family: var(--arabic); direction: rtl; unicode-bidi: isolate; font-size: 1.4em; line-height: 1.8; }
+
+/* Header */
+.hero { background: var(--band); color: var(--band-ink); padding-block: 40px 32px; }
+.hero .wrap { display: grid; gap: 14px; }
+.hero h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 700; }
+.hero .ar-title { font-family: var(--arabic); font-size: clamp(1.6rem, 5vw, 2.4rem); direction: rtl; color: var(--band-ink); }
+.hero p { color: var(--band-muted); max-width: 60ch; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.legend span { font-size: .82rem; font-weight: 600; padding: 4px 12px; border-radius: 999px; }
+.lg-m { background: var(--masc); color: #fff; } .lg-f { background: var(--fem); color: #fff; }
+.lg-r { background: var(--raf); color: #fff; } .lg-n { background: var(--nasb); color: #fff; } .lg-c { background: var(--jarr); color: #fff; }
+:root[data-theme="dark"] .legend span { color: #0c1220; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .legend span { color: #0c1220; } }
+
+/* Nav */
+.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line); }
+.tabs .wrap { display: flex; gap: 6px; overflow-x: auto; padding-block: 10px; scrollbar-width: none; }
+.tabs a { flex: none; text-decoration: none; color: var(--muted); font-weight: 600; font-size: .9rem; padding: 6px 14px; border-radius: 999px; }
+.tabs a:hover, .tabs a:focus-visible { background: var(--bg); color: var(--ink); outline: none; }
+
+/* Sections */
+main { display: grid; gap: 28px; padding-block: 28px 56px; }
+.sec { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 24px; display: grid; gap: 18px; min-width: 0; scroll-margin-top: 70px; }
+.sec > header { display: grid; gap: 4px; }
+.sec h2 { font-size: 1.5rem; }
+.kicker { font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.sec h3 { font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
+.num { flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: .85rem; background: var(--ink); color: var(--surface); }
+.block { display: grid; gap: 10px; }
+.lead { color: var(--muted); max-width: 70ch; }
+.note { border-radius: 12px; padding: 12px 16px; background: var(--nasb-soft); border: 1px solid color-mix(in srgb, var(--nasb) 35%, transparent); }
+.note b { color: var(--nasb); }
+
+/* Chips */
+.w { display: inline-block; font-family: var(--arabic); direction: rtl; unicode-bidi: isolate; font-size: 1.35em; line-height: 1.5; padding: 0 10px; border-radius: 8px; border-bottom: 3px solid; }
+.w.m { background: var(--masc-soft); border-color: var(--masc); }
+.w.f { background: var(--fem-soft); border-color: var(--fem); }
+.w.r { background: var(--raf-soft); border-color: var(--raf); }
+.w.n { background: var(--nasb-soft); border-color: var(--nasb); }
+.w.c { background: var(--jarr-soft); border-color: var(--jarr); }
+.tag { font-size: .75rem; font-weight: 700; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
+.tag.m { background: var(--masc-soft); color: var(--masc); } .tag.f { background: var(--fem-soft); color: var(--fem); }
+.tag.r { background: var(--raf-soft); color: var(--raf); } .tag.n { background: var(--nasb-soft); color: var(--nasb); } .tag.c { background: var(--jarr-soft); color: var(--jarr); }
+
+/* Cards */
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.card { border-radius: 12px; padding: 16px; display: grid; gap: 6px; align-content: start; border: 1px solid var(--line); }
+.card.f { background: var(--fem-soft); border-color: color-mix(in srgb, var(--fem) 30%, transparent); }
+.card.m { background: var(--masc-soft); border-color: color-mix(in srgb, var(--masc) 30%, transparent); }
+.card.r { background: var(--raf-soft); border-color: color-mix(in srgb, var(--raf) 30%, transparent); }
+.card.n { background: var(--nasb-soft); border-color: color-mix(in srgb, var(--nasb) 30%, transparent); }
+.card.c { background: var(--jarr-soft); border-color: color-mix(in srgb, var(--jarr) 30%, transparent); }
+.card .big { font-family: var(--arabic); font-size: 2.2rem; line-height: 1.3; direction: rtl; }
+.card.f .big, .card.f strong { color: var(--fem); } .card.m .big, .card.m strong { color: var(--masc); }
+.card.r .big, .card.r strong { color: var(--raf); } .card.n .big, .card.n strong { color: var(--nasb); } .card.c .big, .card.c strong { color: var(--jarr); }
+.card small { color: var(--muted); }
+
+/* Tables */
+.tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; }
+table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: middle; }
+th { font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); background: var(--bg); }
+tr:last-child td { border-bottom: 0; }
+td.arc { font-family: var(--arabic); font-size: 1.35rem; direction: rtl; text-align: right; white-space: nowrap; }
+tr.rr td:first-child { box-shadow: inset 4px 0 var(--raf); } tr.nn td:first-child { box-shadow: inset 4px 0 var(--nasb); } tr.cc td:first-child { box-shadow: inset 4px 0 var(--jarr); }
+
+/* Vocab */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.btn { font: inherit; font-weight: 600; font-size: .9rem; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); padding: 7px 16px; border-radius: 999px; cursor: pointer; }
+.btn:hover { border-color: var(--muted); }
+.btn:focus-visible { outline: 3px solid color-mix(in srgb, var(--masc) 45%, transparent); outline-offset: 2px; }
+.btn.on { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+.vocab { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.vc { border-radius: 12px; padding: 12px 14px; display: grid; gap: 2px; border: 1px solid var(--line); border-top: 4px solid var(--muted); background: var(--surface); }
+.vc.m { border-top-color: var(--masc); } .vc.f { border-top-color: var(--fem); }
+.vc .ar { font-size: 1.7rem; line-height: 1.5; text-align: right; }
+.vc .tr { font-size: .82rem; color: var(--muted); font-style: italic; }
+.vc .az { font-weight: 600; }
+.vc .tag { justify-self: start; margin-top: 4px; }
+
+/* Steps */
+.steps { display: grid; gap: 10px; counter-reset: s; margin: 0; padding: 0; list-style: none; }
+.steps li { display: grid; grid-template-columns: 32px 1fr; gap: 12px; align-items: start; }
+.steps li::before { counter-increment: s; content: counter(s); width: 32px; height: 32px; border-radius: 50%; background: var(--ink); color: var(--surface); display: grid; place-items: center; font-weight: 700; }
+
+/* Exercises */
+.task { border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: grid; gap: 12px; min-width: 0; }
+.task h3 .num { background: var(--masc); color: #fff; }
+.task.t2 h3 .num { background: var(--raf); }
+.task.t3 h3 .num { background: var(--jarr); }
+.qlist { margin: 0; padding-left: 1.4em; display: grid; gap: 6px; }
+.qlist li::marker { color: var(--muted); font-weight: 600; }
+details.ans { border-radius: 10px; background: var(--raf-soft); }
+details.ans summary { cursor: pointer; font-weight: 600; color: var(--raf); padding: 8px 14px; list-style: none; }
+details.ans summary::before { content: "▸ "; }
+details.ans[open] summary::before { content: "▾ "; }
+details.ans summary:focus-visible { outline: 3px solid var(--raf); border-radius: 10px; }
+details.ans > div { padding: 0 14px 12px; display: grid; gap: 4px; }
+
+.sorter { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+@media (max-width: 420px) { .sq .opts .btn { padding: 4px 9px; font-size: .78rem; } }
+.sq { border: 1.5px solid var(--line); border-radius: 12px; padding: 10px; display: grid; gap: 8px; justify-items: center; background: var(--surface); transition: background .2s, border-color .2s; }
+.sq .ar { font-size: 1.7rem; line-height: 1.4; }
+.sq .opts { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+.sq .opts .btn { padding: 4px 12px; font-size: .82rem; }
+.sq.done-m { background: var(--masc-soft); border-color: var(--masc); }
+.sq.done-f { background: var(--fem-soft); border-color: var(--fem); }
+.sq.done-r { background: var(--raf-soft); border-color: var(--raf); }
+.sq.done-n { background: var(--nasb-soft); border-color: var(--nasb); }
+.sq.done-c { background: var(--jarr-soft); border-color: var(--jarr); }
+.sq.wrong { border-color: var(--bad); background: var(--bad-soft); animation: shake .35s; }
+.sq .fb { font-size: .8rem; font-weight: 600; min-height: 1.2em; }
+.score { font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.bar { flex: 1 1 160px; height: 10px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; background: var(--raf); transition: width .3s; }
+@keyframes shake { 0%,100% { transform: none } 25% { transform: translateX(-4px) } 75% { transform: translateX(4px) } }
+
+/* Test */
+.quiz { display: grid; gap: 14px; }
+.qq { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: grid; gap: 10px; }
+.qq p { font-weight: 600; }
+.qq .ch { display: flex; flex-wrap: wrap; gap: 8px; }
+.qq .ch .btn { font-family: var(--arabic), var(--ui); font-size: 1.15rem; font-weight: 400; padding: 4px 16px; }
+.qq .ch .btn.latin { font-family: var(--ui); font-size: .9rem; font-weight: 500; }
+.qq .ch .btn.right { background: var(--raf-soft); border-color: var(--raf); color: var(--ink); }
+.qq .ch .btn.wrongc { background: var(--bad-soft); border-color: var(--bad); color: var(--ink); }
+.qq .ch .btn:disabled { cursor: default; }
+.result { border-radius: 12px; padding: 14px 18px; background: var(--masc-soft); font-weight: 600; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+footer { color: var(--muted); font-size: .85rem; text-align: center; padding-block: 0 32px; }
+@media (max-width: 520px) { .sec { padding: 18px; } .task { padding: 14px; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+html { scroll-behavior: smooth; }
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="ar-title">اَلْمُذَكَّرُ وَالْمُؤَنَّثُ · اَلرَّفْعُ وَالنَّصْبُ وَالْجَرُّ</div>
+    <h1>Ərəb dili: Cins və İsmin halları</h1>
+    <p>İki qayda, lüğət, interaktiv tapşırıqlar və mini-test. Hər rəng bir mənanı bildirir:</p>
+    <div class="legend">
+      <span class="lg-m">Müzəkkər</span><span class="lg-f">Müənnəs</span>
+      <span class="lg-r">Rəf'</span><span class="lg-n">Nəsb</span><span class="lg-c">Cərr</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Bölmələr">
+  <div class="wrap">
+    <a href="#lugat">Lüğət</a><a href="#ders1">Dərs 1: Cins</a><a href="#tap1">Tapşırıqlar 1</a>
+    <a href="#ders2">Dərs 2: Hallar</a><a href="#tap2">Tapşırıqlar 2</a><a href="#tekrar">Təkrar</a><a href="#test">Mini-test</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- LÜĞƏT -->
+  <section class="sec" id="lugat">
+    <header><span class="kicker">Başlamazdan əvvəl</span><h2>Lüğət</h2></header>
+    <p class="lead">Dərslikdəki bütün nümunələr bu sözlərlə qurulub. Mavi xətt müzəkkəri, çəhrayı xətt müənnəsi göstərir.</p>
+    <div class="filters" role="group" aria-label="Süzgəc">
+      <button class="btn on" data-filter="all" id="flt-all">Hamısı</button>
+      <button class="btn" data-filter="m" id="flt-m">Müzəkkər</button>
+      <button class="btn" data-filter="f" id="flt-f">Müənnəs</button>
+      <button class="btn" data-filter="x" id="flt-x">Sifət, ön qoşma, feil</button>
+    </div>
+    <div class="vocab" id="vocab"></div>
+  </section>
+
+  <!-- DƏRS 1 -->
+  <section class="sec" id="ders1">
+    <header><span class="kicker">Dərs 1</span><h2>Cins qaydası <span class="ar">اَلْمُذَكَّرُ وَالْمُؤَنَّثُ</span></h2></header>
+    <p class="lead">Ərəb dilində hər ismin cinsi var: ya <b style="color:var(--masc)">müzəkkərdir</b> (kişi cinsi), ya da <b style="color:var(--fem)">müənnəsdir</b> (qadın cinsi). Orta cins yoxdur. Əlaməti olmayan isim, əsasən, müzəkkərdir.</p>
+
+    <div class="block">
+      <h3><span class="num">1</span>Müənnəsin üç əlaməti</h3>
+      <div class="grid3">
+        <div class="card f"><div class="big">ـَة</div><strong>Ta mərbutə</strong><small>Ən çox rast gəlinən əlamət</small><span class="ar">مَدْرَسَة · سَيَّارَة · غُرْفَة</span></div>
+        <div class="card f"><div class="big">ـَاء</div><strong>Uzun əlif + həmzə</strong><small>Sözün sonunda</small><span class="ar">صَحْرَاء</span></div>
+        <div class="card f"><div class="big">ـَى</div><strong>Qısa əlif</strong><small>Sözün sonunda</small><span class="ar">ذِكْرَى</span></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3><span class="num">2</span>Əlamətsiz müənnəs sözlər</h3>
+      <p class="lead">Bu sözlərdə əlamət yoxdur, amma onlar müənnəsdir. Onları əzbərləmək lazımdır.</p>
+      <div class="grid3">
+        <div class="card f"><strong>Qadın bildirən sözlər</strong><span class="ar">أُمّ · بِنْت</span><small>ana, qız</small></div>
+        <div class="card f"><strong>Bədənin cüt üzvləri</strong><span class="ar">يَد · عَيْن · رِجْل · أُذُن</span><small>əl, göz, ayaq, qulaq</small></div>
+        <div class="card f"><strong>Adətən müənnəs sayılanlar</strong><span class="ar">شَمْس · أَرْض · نَار · دَار</span><small>günəş, yer, od, ev</small></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3><span class="num">3</span>İstisna: <span class="ar">ة</span> ilə bitən müzəkkər sözlər</h3>
+      <div class="card m"><strong>Mənaca kişidir, ona görə müzəkkərdir</strong><span class="ar">خَلِيفَة · حَمْزَة · أُسَامَة</span><small>xəlifə, Həmzə, Üsamə</small></div>
+    </div>
+
+    <div class="block">
+      <h3><span class="num">4</span>Müzəkkərdən müənnəs düzəltmək</h3>
+      <p class="lead">Sözün sonuna <span class="ar">ـَة</span> əlavə olunur. Son hərf fəthə (<span class="ar">ـَ</span>) alır.</p>
+      <div class="tbl"><table>
+        <thead><tr><th>Müzəkkər</th><th>Müənnəs</th><th>Mənası</th></tr></thead>
+        <tbody>
+          <tr><td><span class="w m">مُعَلِّم</span></td><td><span class="w f">مُعَلِّمَة</span></td><td>müəllim → müəllimə</td></tr>
+          <tr><td><span class="w m">طَالِب</span></td><td><span class="w f">طَالِبَة</span></td><td>tələbə (oğlan → qız)</td></tr>
+          <tr><td><span class="w m">كَبِير</span></td><td><span class="w f">كَبِيرَة</span></td><td>böyük</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="block">
+      <h3><span class="num">5</span>Uyğunlaşma</h3>
+      <p class="lead">Sifət və işarə əvəzliyi isimlə cinsdə uyğunlaşır: <span class="w m">هٰذَا</span> müzəkkər üçün, <span class="w f">هٰذِهِ</span> müənnəs üçün.</p>
+      <div class="tbl"><table>
+        <thead><tr><th>Müzəkkər</th><th>Müənnəs</th></tr></thead>
+        <tbody>
+          <tr><td><span class="w m">هٰذَا بَيْتٌ كَبِيرٌ</span><br><small>Bu böyük evdir.</small></td><td><span class="w f">هٰذِهِ سَيَّارَةٌ كَبِيرَةٌ</span><br><small>Bu böyük maşındır.</small></td></tr>
+          <tr><td><span class="w m">هٰذَا قَلَمٌ جَدِيدٌ</span><br><small>Bu yeni qələmdir.</small></td><td><span class="w f">هٰذِهِ غُرْفَةٌ جَدِيدَةٌ</span><br><small>Bu yeni otaqdır.</small></td></tr>
+          <tr><td><span class="w m">اَلْوَلَدُ صَغِيرٌ</span><br><small>Oğlan kiçikdir.</small></td><td><span class="w f">اَلشَّمْسُ كَبِيرَةٌ</span><br><small>Günəş böyükdür.</small></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="block">
+      <h3><span class="num">✓</span>Yadda saxla: sözün cinsini necə tapmalı</h3>
+      <ol class="steps">
+        <li><span>Sonunda <span class="ar">ة</span>، <span class="ar">ـَاء</span> və ya <span class="ar">ـَى</span> var? → <b style="color:var(--fem)">Müənnəsdir.</b> Amma kişi adıdırsa, müzəkkərdir.</span></li>
+        <li><span>Qadını, bədənin cüt üzvünü bildirir, ya da əzbərlədiyimiz siyahıdadır? → <b style="color:var(--fem)">Müənnəsdir.</b></span></li>
+        <li><span>Heç biri deyil? → <b style="color:var(--masc)">Müzəkkərdir.</b></span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- TAPŞIRIQLAR 1 -->
+  <section class="sec" id="tap1">
+    <header><span class="kicker">Dərs 1</span><h2>Tapşırıqlar</h2></header>
+
+    <div class="task">
+      <h3><span class="num">1</span>Sözün cinsini seçin</h3>
+      <p class="lead">Hər sözün altındakı düyməni basın. Düzgün cavab rənglənir.</p>
+      <div class="score"><span id="s1txt">0 / 12</span><div class="bar"><i id="s1bar"></i></div><button class="btn" id="s1reset">Yenidən</button></div>
+      <div class="sorter" id="sorter1"></div>
+    </div>
+
+    <div class="task">
+      <h3><span class="num">2</span>Müənnəs formasını yazın</h3>
+      <ol class="qlist">
+        <li><span class="ar">مُعَلِّم</span> → ...........</li><li><span class="ar">طَالِب</span> → ...........</li>
+        <li><span class="ar">كَبِير</span> → ...........</li><li><span class="ar">صَغِير</span> → ...........</li>
+        <li><span class="ar">جَدِيد</span> → ...........</li><li><span class="ar">جَمِيل</span> → ...........</li>
+      </ol>
+      <details class="ans"><summary>Cavabı göstər</summary><div><span class="ar">مُعَلِّمَة · طَالِبَة · كَبِيرَة · صَغِيرَة · جَدِيدَة · جَمِيلَة</span></div></details>
+    </div>
+
+    <div class="task">
+      <h3><span class="num">3</span>Boş yerə <span class="ar">هٰذَا</span> və ya <span class="ar">هٰذِهِ</span> yazın</h3>
+      <ol class="qlist">
+        <li><span class="ar">........... بَيْتٌ</span></li><li><span class="ar">........... سَيَّارَةٌ</span></li>
+        <li><span class="ar">........... شَمْسٌ</span></li><li><span class="ar">........... قَلَمٌ</span></li>
+        <li><span class="ar">........... عَيْنٌ</span></li><li><span class="ar">........... وَلَدٌ</span></li>
+        <li><span class="ar">........... خَلِيفَةٌ</span></li><li><span class="ar">........... بِنْتٌ</span></li>
+      </ol>
+      <details class="ans"><summary>Cavabı göstər</summary><div>
+        <span>1 <span class="w m">هٰذَا</span> · 2 <span class="w f">هٰذِهِ</span> · 3 <span class="w f">هٰذِهِ</span> · 4 <span class="w m">هٰذَا</span></span>
+        <span>5 <span class="w f">هٰذِهِ</span> · 6 <span class="w m">هٰذَا</span> · 7 <span class="w m">هٰذَا</span> (istisna) · 8 <span class="w f">هٰذِهِ</span></span>
+      </div></details>
+    </div>
+
+    <div class="task">
+      <h3><span class="num">4</span>Mötərizədəki sifəti isimlə uyğunlaşdırın</h3>
+      <ol class="qlist">
+        <li><span class="ar">هٰذِهِ غُرْفَةٌ (كَبِير)</span></li><li><span class="ar">هٰذَا كِتَابٌ (جَدِيد)</span></li>
+        <li><span class="ar">هٰذِهِ يَدٌ (صَغِير)</span></li><li><span class="ar">هٰذَا مَسْجِدٌ (جَمِيل)</span></li>
+        <li><span class="ar">اَلْأَرْضُ (كَبِير)</span></li>
+      </ol>
+      <details class="ans"><summary>Cavabı göstər</summary><div><span class="ar">غُرْفَةٌ كَبِيرَةٌ · كِتَابٌ جَدِيدٌ · يَدٌ صَغِيرَةٌ · مَسْجِدٌ جَمِيلٌ · اَلْأَرْضُ كَبِيرَةٌ</span></div></details>
+    </div>
+
+    <div class="task">
+      <h3><span class="num">5</span>Səhvi tapın və düzəldin</h3>
+      <ol class="qlist">
+        <li><span class="ar">هٰذَا مَدْرَسَةٌ.</span></li><li><span class="ar">هٰذِهِ بَابٌ.</span></li>
+        <li><span class="ar">اَلشَّمْسُ كَبِيرٌ.</span></li><li><span class="ar">هٰذِهِ عَيْنٌ جَمِيلٌ.</span></li>
+        <li><span class="ar">هٰذَا سَيَّارَةٌ جَدِيدَةٌ.</span></li>
+      </ol>
+      <details class="ans"><summary>Cavabı göstər</summary><div><span class="ar">هٰذِهِ مَدْرَسَةٌ · هٰذَا بَابٌ · اَلشَّمْسُ كَبِيرَةٌ · هٰذِهِ عَيْنٌ جَمِيلَةٌ · هٰذِهِ سَيَّارَةٌ جَدِيدَةٌ</span></div></details>
+    </div>
+
+    <div class="task">
+      <h3><span class="num">6</span>Ərəb dilinə tərcümə edin</h3>
+      <ol class="qlist"><li>Bu kiçik otaqdır.</li><li>Bu yeni kitabdır.</li><li>Bu gözəl məsciddir.</li><li>Bu böyük məktəbdir.</li></ol>
+      <details class="ans"><summary>Cavabı göstər</summary><div><span class="ar">هٰذِهِ غُرْفَةٌ صَغِيرَةٌ · هٰذَا كِتَابٌ جَدِيدٌ · هٰذَا مَسْجِدٌ جَمِيلٌ · هٰذِهِ مَدْرَسَةٌ كَبِيرَةٌ</span></div></details>
+    </div>
+  </section>
+
+  <!-- DƏRS 2 -->
+  <section class="sec" id="ders2">
+    <header><span class="kicker">Dərs 2</span><h2>İsmin halları <span class="ar">اَلرَّفْعُ وَالنَّصْبُ وَالْجَرُّ</span></h2></header>
+    <p class="lead">Ərəb dilində ismin üç halı var. Hal sözün son hərfinin hərəkəsi ilə göstərilir. Sözün əvvəlində <span class="ar">ال</span> varsa, sonda bir hərəkə olur. <span class="ar">ال</span> yoxdursa, sonda tənvin olur.</p>
+
+    <div class="grid3">
+      <div class="card r"><strong>Rəf' · مَرْفُوع</strong><div class="big">ـُ &nbsp; ـٌ</div><small>Mübtəda, xəbər, fail (işi görən)</small></div>
+      <div class="card n"><strong>Nəsb · مَنْصُوب</strong><div class="big">ـَ &nbsp; ـًا</div><small>Feilin məfulu (kimi? nəyi?)</small></div>
+      <div class="card c"><strong>Cərr · مَجْرُور</strong><div class="big">ـِ &nbsp; ـٍ</div><small>Hərfi-cərrdən sonra, izafətin ikinci sözü</small></div>
+    </div>
+
+    <div class="block">
+      <h3><span class="num" style="background:var(--raf)">1</span>Rəf' halı</h3>
+      <p class="lead">Cümlə isimlə başlayırsa, həm mübtəda, həm xəbər rəf' halında olur. Feildən sonra işi görən söz (fail) də rəf' halındadır.</p>
+      <div class="tbl"><table><tbody>
+        <tr class="rr"><td><span class="w r">اَلْكِتَابُ</span> <span class="w r">جَدِيدٌ</span></td><td>Kitab yenidir.</td></tr>
+        <tr class="rr"><td><span class="w r">اَلْمُعَلِّمَةُ</span> <span class="w r">جَمِيلَةٌ</span></td><td>Müəllimə gözəldir.</td></tr>
+        <tr class="rr"><td><span class="ar">جَاءَ</span> <span class="w r">اَلطَّالِبُ</span></td><td>Tələbə gəldi.</td></tr>
+      </tbody></table></div>
+    </div>
+
+    <div class="block">
+      <h3><span class="num" style="background:var(--nasb)">2</span>Nəsb halı</h3>
+      <p class="lead">Feilin təsir etdiyi söz (məful) nəsb halında olur. Azərbaycan dilində bu, adətən "kimi? nəyi?" sualına cavab verir.</p>
+      <div class="tbl"><table><tbody>
+        <tr class="nn"><td><span class="ar">رَأَيْتُ</span> <span class="w n">اَلْمُعَلِّمَ</span></td><td>Müəllimi gördüm.</td></tr>
+        <tr class="nn"><td><span class="ar">قَرَأْتُ</span> <span class="w n">كِتَابًا</span></td><td>Bir kitab oxudum.</td></tr>
+        <tr class="nn"><td><span class="ar">رَأَيْتُ</span> <span class="w n">سَيَّارَةً</span></td><td>Bir maşın gördüm.</td></tr>
+      </tbody></table></div>
+      <div class="note"><b>Diqqət:</b> nəsbdə tənvinli sözə əlif əlavə olunur: <span class="ar">كِتَابًا</span>. Amma <span class="ar">ة</span> ilə bitən söz əlif almır: <span class="ar">سَيَّارَةً</span>.</div>
+    </div>
+
+    <div class="block">
+      <h3><span class="num" style="background:var(--jarr)">3</span>Cərr halı</h3>
+      <p class="lead">Hərfi-cərrdən (<span class="ar">فِي، مِنْ، إِلَى، عَلَى</span>) sonra gələn isim cərr halında olur. İki isim birləşəndə (izafət) ikinci söz də cərr halındadır.</p>
+      <div class="tbl"><table><tbody>
+        <tr class="cc"><td><span class="ar">اَلْوَلَدُ فِي</span> <span class="w c">اَلْبَيْتِ</span></td><td>Oğlan evdədir.</td></tr>
+        <tr class="cc"><td><span class="ar">ذَهَبْتُ إِلَى</span> <span class="w c">اَلْمَدْرَسَةِ</span></td><td>Məktəbə getdim.</td></tr>
+        <tr class="cc"><td><span class="ar">جَاءَ الرَّجُلُ مِنَ</span> <span class="w c">اَلْمَسْجِدِ</span></td><td>Kişi məsciddən gəldi.</td></tr>
+        <tr class="cc"><td><span class="ar">كِتَابُ</span> <span class="w c">اَلطَّالِبِ</span></td><td>tələbənin kitabı (izafət)</td></tr>
+      </tbody></table></div>
+      <div class="note"><b>Diqqət:</b> izafətdə birinci söz <span class="ar">ال</span> və tənvin almır: <span class="ar">كِتَابُ الطَّالِبِ</span>.</div>
+    </div>
+
+    <div class="block">
+      <h3><span class="num">4</span>Bir sözün üç halda dəyişməsi</h3>
+      <div class="tbl"><table>
+        <thead><tr><th>Hal</th><th>كِتَاب · m</th><th>اَلْكِتَاب · m</th><th>مَدْرَسَة · f</th><th>اَلْمَدْرَسَة · f</th></tr></thead>
+        <tbody>
+          <tr class="rr"><td><span class="tag r">Rəf'</span></td><td class="arc">كِتَابٌ</td><td class="arc">اَلْكِتَابُ</td><td class="arc">مَدْرَسَةٌ</td><td class="arc">اَلْمَدْرَسَةُ</td></tr>
+          <tr class="nn"><td><span class="tag n">Nəsb</span></td><td class="arc">كِتَابًا</td><td class="arc">اَلْكِتَابَ</td><td class="arc">مَدْرَسَةً</td><td class="arc">اَلْمَدْرَسَةَ</td></tr>
+          <tr class="cc"><td><span class="tag c">Cərr</span></td><td class="arc">كِتَابٍ</td><td class="arc">اَلْكِتَابِ</td><td class="arc">مَدْرَسَةٍ</td><td class="arc">اَلْمَدْرَسَةِ</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="block">
+      <h3><span class="num">✓</span>Yadda saxla</h3>
+      <ol class="steps">
+        <li><span><span class="ar">ال</span> və tənvin bir sözdə birlikdə olmur.</span></li>
+        <li><span>Hal sonluqları hər iki cinsdə eynidir. Müənnəsdə sonluq <span class="ar">ة</span> hərfinin üstünə qoyulur.</span></li>
+        <li><span><span class="ar">ـَاء</span> ilə bitən sözlər (<span class="ar">صَحْرَاء</span>) tənvin almır. Bu, sonrakı dərslərin mövzusudur.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- TAPŞIRIQLAR 2 -->
+  <section class="sec" id="tap2">
+    <header><span class="kicker">Dərs 2</span><h2>Tapşırıqlar</h2></header>
+
+    <div class="task t2">
+      <h3><span class="num">1</span>Sözün halını seçin</h3>
+      <div class="score"><span id="s2txt">0 / 8</span><div class="bar"><i id="s2bar"></i></div><button class="btn" id="s2reset">Yenidən</button></div>
+      <div class="sorter" id="sorter2"></div>
+    </div>
+
+    <div class="task t2">
+      <h3><span class="num">2</span>Sözlərin sonuna düzgün hərəkəni qoyun</h3>
+      <ol class="qlist">
+        <li><span class="ar">ذَهَبْتُ إِلَى الْمَدْرَسَة</span> · Məktəbə getdim.</li>
+        <li><span class="ar">رَأَيْتُ الْمُعَلِّم</span> · Müəllimi gördüm.</li>
+        <li><span class="ar">جَاءَ الْوَلَد</span> · Oğlan gəldi.</li>
+        <li><span class="ar">اَلْقَلَم عَلَى الْكِتَاب</span> · Qələm kitabın üstündədir.</li>
+        <li><span class="ar">اَلْأُمّ فِي الْغُرْفَة</span> · Ana otaqdadır.</li>
+        <li><span class="ar">قَرَأْتُ الْكِتَاب</span> · Kitabı oxudum.</li>
+      </ol>
+      <details class="ans"><summary>Cavabı göstər</summary><div>
+        <span><span class="w c">اَلْمَدْرَسَةِ</span> · <span class="w n">اَلْمُعَلِّمَ</span> · <span class="w r">اَلْوَلَدُ</span></span>
+        <span><span class="w r">اَلْقَلَمُ</span> … <span class="w c">اَلْكِتَابِ</span> · <span class="w r">اَلْأُمُّ</span> … <span class="w c">اَلْغُرْفَةِ</span> · <span class="w n">اَلْكِتَابَ</span></span>
+      </div></details>
+    </div>
+
+    <div class="task t2">
+      <h3><span class="num">3</span>Sözləri tənvinlə üç halda yazın</h3>
+      <div class="tbl"><table>
+        <thead><tr><th>Söz</th><th>Rəf'</th><th>Nəsb</th><th>Cərr</th></tr></thead>
+        <tbody>
+          <tr><td class="arc">بَاب</td><td></td><td></td><td></td></tr>
+          <tr><td class="arc">غُرْفَة</td><td></td><td></td><td></td></tr>
+          <tr><td class="arc">وَلَد</td><td></td><td></td><td></td></tr>
+          <tr><td class="arc">بِنْت</td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table></div>
+      <details class="ans"><summary>Cavabı göstər</summary><div>
+        <span class="ar">بَابٌ بَابًا بَابٍ · غُرْفَةٌ غُرْفَةً غُرْفَةٍ</span>
+        <span class="ar">وَلَدٌ وَلَدًا وَلَدٍ · بِنْتٌ بِنْتًا بِنْتٍ</span>
+      </div></details>
+    </div>
+
+    <div class="task t2">
+      <h3><span class="num">4</span>Qalın yazılmış sözün halını və səbəbini yazın</h3>
+      <ol class="qlist">
+        <li><span class="ar">كِتَابُ <b>الطَّالِبِ</b> جَدِيدٌ.</span></li>
+        <li><span class="ar">رَأَيْتُ <b>بَيْتًا</b>.</span></li>
+        <li><span class="ar"><b>اَلْمُعَلِّمُ</b> فِي الْمَسْجِدِ.</span></li>
+        <li><span class="ar">ذَهَبْتُ إِلَى <b>الْبَيْتِ</b>.</span></li>
+      </ol>
+      <details class="ans"><summary>Cavabı göstər</summary><div>
+        <span>1 <span class="tag c">Cərr</span> izafətin ikinci sözü · 2 <span class="tag n">Nəsb</span> feilin məfulu</span>
+        <span>3 <span class="tag r">Rəf'</span> mübtəda · 4 <span class="tag c">Cərr</span> <span class="ar">إِلَى</span>-dən sonra</span>
+      </div></details>
+    </div>
+
+    <div class="task t2">
+      <h3><span class="num">5</span>Cümlələri tam hərəkələyin</h3>
+      <ol class="qlist"><li><span class="ar">قرأت كتابا في الغرفة.</span></li><li><span class="ar">جاء المعلم من المدرسة.</span></li><li><span class="ar">البيت جديد.</span></li></ol>
+      <details class="ans"><summary>Cavabı göstər</summary><div>
+        <span class="ar">قَرَأْتُ كِتَابًا فِي الْغُرْفَةِ.</span><span class="ar">جَاءَ الْمُعَلِّمُ مِنَ الْمَدْرَسَةِ.</span><span class="ar">اَلْبَيْتُ جَدِيدٌ.</span>
+      </div></details>
+    </div>
+  </section>
+
+  <!-- TƏKRAR -->
+  <section class="sec" id="tekrar">
+    <header><span class="kicker">Təkrar</span><h2>İki qayda birlikdə</h2></header>
+    <p class="lead">Sifət isimlə həm <b>cinsdə</b>, həm də <b>halda</b> uyğunlaşır. İsim <span class="ar">ال</span> alırsa, sifət də <span class="ar">ال</span> alır.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Hal</th><th>Müzəkkər</th><th>Müənnəs</th></tr></thead>
+      <tbody>
+        <tr class="rr"><td><span class="tag r">Rəf'</span></td><td><span class="w m">بَيْتٌ كَبِيرٌ</span></td><td><span class="w f">غُرْفَةٌ كَبِيرَةٌ</span></td></tr>
+        <tr class="nn"><td><span class="tag n">Nəsb</span></td><td><span class="w m">بَيْتًا كَبِيرًا</span></td><td><span class="w f">غُرْفَةً كَبِيرَةً</span></td></tr>
+        <tr class="cc"><td><span class="tag c">Cərr</span></td><td><span class="w m">بَيْتٍ كَبِيرٍ</span></td><td><span class="w f">غُرْفَةٍ كَبِيرَةٍ</span></td></tr>
+        <tr class="cc"><td><span class="tag c">Cərr + ال</span></td><td><span class="w m">فِي الْبَيْتِ الْكَبِيرِ</span></td><td><span class="w f">فِي الْغُرْفَةِ الْكَبِيرَةِ</span></td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="task t3">
+      <h3><span class="num">1</span>Mötərizədəki sözləri düzgün cins və halda yazın</h3>
+      <ol class="qlist">
+        <li><span class="ar">رَأَيْتُ (بِنْت) (صَغِير)</span></li>
+        <li><span class="ar">ذَهَبْتُ إِلَى (مَدْرَسَة) (كَبِير)</span></li>
+        <li><span class="ar">قَرَأْتُ (كِتَاب) (جَدِيد)</span></li>
+        <li><span class="ar">جَاءَتِ (الْمُعَلِّمَة) (الْجَمِيل)</span></li>
+        <li><span class="ar">اَلْقَلَمُ فِي (الْغُرْفَة) (الصَّغِير)</span></li>
+      </ol>
+      <details class="ans"><summary>Cavabı göstər</summary><div>
+        <span><span class="w n">بِنْتًا صَغِيرَةً</span> · <span class="w c">مَدْرَسَةٍ كَبِيرَةٍ</span> · <span class="w n">كِتَابًا جَدِيدًا</span></span>
+        <span><span class="w r">اَلْمُعَلِّمَةُ الْجَمِيلَةُ</span> · <span class="w c">اَلْغُرْفَةِ الصَّغِيرَةِ</span></span>
+      </div></details>
+    </div>
+
+    <div class="task t3">
+      <h3><span class="num">2</span>Ərəb dilinə tərcümə edin</h3>
+      <ol class="qlist"><li>Müəllimə otaqdadır.</li><li>Böyük evi gördüm.</li><li>Yeni məktəbə getdim.</li><li>Qızın kitabı yenidir.</li></ol>
+      <details class="ans"><summary>Cavabı göstər</summary><div>
+        <span class="ar">اَلْمُعَلِّمَةُ فِي الْغُرْفَةِ.</span>
+        <span class="ar">رَأَيْتُ الْبَيْتَ الْكَبِيرَ.</span>
+        <span><span class="ar">ذَهَبْتُ إِلَى مَدْرَسَةٍ جَدِيدَةٍ.</span> (və ya <span class="ar">إِلَى الْمَدْرَسَةِ الْجَدِيدَةِ</span>)</span>
+        <span class="ar">كِتَابُ الْبِنْتِ جَدِيدٌ.</span>
+      </div></details>
+    </div>
+  </section>
+
+  <!-- TEST -->
+  <section class="sec" id="test">
+    <header><span class="kicker">Yoxlama</span><h2>Mini-test</h2></header>
+    <p class="lead">Hər sualın bir düzgün cavabı var. Cavabı basın, nəticə dərhal görünəcək.</p>
+    <div class="quiz" id="quiz"></div>
+    <div class="result"><span id="qres">0 / 10 düzgün cavab</span><button class="btn" id="qreset">Testi yenidən başla</button></div>
+  </section>
+</main>
+<footer>Ərəb dili dərsliyi · Cins və İsmin halları</footer>
+
+<script>
+(function () {
+  var nouns = [
+    ['كِتَاب','kitab','kitab','m'],['قَلَم','qələm','qələm','m'],['بَيْت','beyt','ev','m'],['بَاب','bab','qapı','m'],
+    ['مَسْجِد','məscid','məscid','m'],['مُعَلِّم','müəllim','müəllim','m'],['طَالِب','talib','tələbə (oğlan)','m'],
+    ['رَجُل','racul','kişi','m'],['وَلَد','vələd','oğlan','m'],['خَلِيفَة','xəlifə','xəlifə (istisna)','m'],
+    ['مَدْرَسَة','mədrəsə','məktəb','f'],['سَيَّارَة','səyyarə','maşın','f'],['غُرْفَة','ğurfə','otaq','f'],
+    ['مُعَلِّمَة','müəllimə','müəllimə','f'],['طَالِبَة','talibə','tələbə (qız)','f'],['صَحْرَاء','səhra','səhra','f'],
+    ['ذِكْرَى','zikra','xatirə','f'],['أُمّ','umm','ana','f'],['بِنْت','bint','qız','f'],['شَمْس','şəms','günəş','f'],
+    ['أَرْض','ərd','yer, torpaq','f'],['نَار','nar','od','f'],['دَار','dar','ev, yurd','f'],['يَد','yəd','əl','f'],
+    ['عَيْن',"'eyn",'göz','f'],['رِجْل','ricl','ayaq','f'],['أُذُن','uzun','qulaq','f']
+  ];
+  var others = [
+    ['كَبِير / كَبِيرَة','kəbir / kəbirə','böyük','sifət'],['صَغِير / صَغِيرَة','səğir / səğirə','kiçik','sifət'],
+    ['جَدِيد / جَدِيدَة','cədid / cədidə','yeni','sifət'],['جَمِيل / جَمِيلَة','cəmil / cəmilə','gözəl','sifət'],
+    ['هٰذَا','haza','bu (müzəkkər)','əvəzlik'],['هٰذِهِ','hazihi','bu (müənnəs)','əvəzlik'],
+    ['فِي','fi','-da, -də, içində','ön qoşma'],['مِنْ','min','-dan, -dən','ön qoşma'],['إِلَى','ilə','-a, -ə, tərəfə','ön qoşma'],
+    ['عَلَى','ələ','üstündə','ön qoşma'],['جَاءَ','cae','gəldi','feil'],['ذَهَبْتُ','zəhəbtu','getdim','feil'],
+    ['رَأَيْتُ','rəəytu','gördüm','feil'],['قَرَأْتُ','qərətu','oxudum','feil']
+  ];
+  var gName = { m: 'Müzəkkər', f: 'Müənnəs' };
+  var vocab = document.getElementById('vocab');
+  function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+  nouns.forEach(function (n) {
+    var c = el('div', 'vc ' + n[3]); c.dataset.kind = n[3];
+    c.append(el('span', 'ar', n[0]), el('span', 'tr', n[1]), el('span', 'az', n[2]), el('span', 'tag ' + n[3], gName[n[3]]));
+    vocab.append(c);
+  });
+  others.forEach(function (n) {
+    var c = el('div', 'vc'); c.dataset.kind = 'x';
+    c.append(el('span', 'ar', n[0]), el('span', 'tr', n[1]), el('span', 'az', n[2]), el('span', 'tag', n[3]));
+    c.lastChild.style.background = 'var(--bg)'; c.lastChild.style.color = 'var(--muted)';
+    vocab.append(c);
+  });
+  document.querySelectorAll('[data-filter]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('[data-filter]').forEach(function (x) { x.classList.toggle('on', x === b); });
+      var f = b.dataset.filter;
+      vocab.querySelectorAll('.vc').forEach(function (c) { c.hidden = !(f === 'all' || c.dataset.kind === f); });
+    });
+  });
+
+  // Generic choice-sorter
+  function sorter(boxId, txtId, barId, resetId, items, options) {
+    var box = document.getElementById(boxId), total = items.length, right = 0;
+    function update() {
+      document.getElementById(txtId).textContent = right + ' / ' + total + ' düzgün';
+      document.getElementById(barId).style.width = (right / total * 100) + '%';
+    }
+    function build() {
+      box.innerHTML = ''; right = 0; update();
+      items.forEach(function (it) {
+        var sq = el('div', 'sq'), fb = el('span', 'fb'), opts = el('div', 'opts');
+        sq.append(el('span', 'ar', it[0]), opts, fb);
+        options.forEach(function (o) {
+          var b = el('button', 'btn', o[1]); b.type = 'button';
+          b.addEventListener('click', function () {
+            if (sq.dataset.solved) return;
+            sq.classList.remove('wrong'); void sq.offsetWidth;
+            if (o[0] === it[1]) {
+              sq.dataset.solved = '1'; sq.classList.add('done-' + o[0]);
+              fb.textContent = '✓ ' + o[1]; fb.style.color = 'var(--ok)';
+              opts.querySelectorAll('button').forEach(function (x) { x.disabled = true; });
+              right++; update();
+            } else {
+              sq.classList.add('wrong'); fb.textContent = 'Yenidən yoxlayın'; fb.style.color = 'var(--bad)';
+            }
+          });
+          opts.append(b);
+        });
+        box.append(sq);
+      });
+    }
+    document.getElementById(resetId).addEventListener('click', build);
+    build();
+  }
+  sorter('sorter1', 's1txt', 's1bar', 's1reset',
+    [['بَاب','m'],['مَدْرَسَة','f'],['شَمْس','f'],['قَلَم','m'],['صَحْرَاء','f'],['يَد','f'],
+     ['وَلَد','m'],['غُرْفَة','f'],['أُمّ','f'],['كِتَاب','m'],['ذِكْرَى','f'],['أَرْض','f']],
+    [['m','Müzəkkər'],['f','Müənnəs']]);
+  sorter('sorter2', 's2txt', 's2bar', 's2reset',
+    [['اَلطَّالِبُ','r'],['كِتَابًا','n'],['اَلْبَيْتِ','c'],['مُعَلِّمَةٌ','r'],['سَيَّارَةً','n'],['بَابٍ','c'],['اَلْقَلَمَ','n'],['غُرْفَةٍ','c']],
+    [['r',"Rəf'"],['n','Nəsb'],['c','Cərr']]);
+
+  // Quiz
+  var Q = [
+    ['Hansı söz müənnəsdir?', ['بَاب','قَلَم','عَيْن','مَسْجِد'], 2],
+    ['Hansı söz ة ilə bitir, amma müzəkkərdir?', ['غُرْفَة','خَلِيفَة','سَيَّارَة','مَدْرَسَة'], 1],
+    ['ـَى əlaməti hansı sözdədir?', ['صَحْرَاء','ذِكْرَى','أَرْض','بِنْت'], 1],
+    ['........... شَمْسٌ — boş yerə nə yazılır?', ['هٰذَا','هٰذِهِ'], 1],
+    ['فِي الْبَيْت... — son hərəkə hansıdır?', ['ـُ','ـَ','ـِ'], 2],
+    ['رَأَيْتُ ........... — düzgün variant hansıdır?', ['وَلَدٌ','وَلَدًا','وَلَدٍ'], 1],
+    ['Hansı yazılış düzgündür?', ['سَيَّارَةًا','سَيَّارَةً'], 1],
+    ['Hansı yazılış səhvdir?', ['اَلْكِتَابُ','كِتَابٌ','اَلْكِتَابٌ'], 2],
+    ['كِتَابُ الطَّالِبِ — الطَّالِبِ sözü niyə cərr halındadır?', ['Hərfi-cərrdən sonra gəlib','İzafətin ikinci sözüdür','Feilin məfuludur'], 1, true],
+    ['اَلشَّمْسُ ........... — düzgün variant hansıdır?', ['كَبِيرٌ','كَبِيرَةٌ','كَبِيرَةً'], 1]
+  ];
+  var quiz = document.getElementById('quiz'), score = 0, answered = 0;
+  function qUpdate() { document.getElementById('qres').textContent = score + ' / ' + Q.length + ' düzgün cavab' + (answered === Q.length ? (score >= 8 ? ' · Əla!' : score >= 5 ? ' · Yaxşı, təkrar edin.' : ' · Dərsləri yenidən oxuyun.') : ''); }
+  function buildQuiz() {
+    quiz.innerHTML = ''; score = 0; answered = 0; qUpdate();
+    Q.forEach(function (q, i) {
+      var d = el('div', 'qq'), p = el('p', null, (i + 1) + '. '), ch = el('div', 'ch');
+      p.append(document.createTextNode(q[0])); d.append(p, ch);
+      q[1].forEach(function (o, j) {
+        var b = el('button', 'btn' + (q[3] ? ' latin' : ''), String.fromCharCode(65 + j) + ') ' + o); b.type = 'button';
+        b.addEventListener('click', function () {
+          answered++;
+          ch.querySelectorAll('button').forEach(function (x, k) { x.disabled = true; if (k === q[2]) x.classList.add('right'); });
+          if (j === q[2]) score++; else b.classList.add('wrongc');
+          qUpdate();
+        });
+        ch.append(b);
+      });
+      quiz.append(d);
+    });
+  }
+  document.getElementById('qreset').addEventListener('click', buildQuiz);
+  buildQuiz();
+})();
+</script>

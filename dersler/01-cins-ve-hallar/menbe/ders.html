@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<title>Ərəb dili — Cins və İsmin halı</title>
+<style>
+@font-face { font-family: 'Amiri'; font-weight: 400; src: url('node_modules/@fontsource/amiri/files/amiri-arabic-400-normal.woff2') format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+FB50-FDFF, U+FE70-FEFF, U+200C-200E; }
+@font-face { font-family: 'Amiri'; font-weight: 700; src: url('node_modules/@fontsource/amiri/files/amiri-arabic-700-normal.woff2') format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+FB50-FDFF, U+FE70-FEFF, U+200C-200E; }
+@font-face { font-family: 'Inter'; font-weight: 400; src: url('node_modules/@fontsource/inter/files/inter-latin-ext-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 400; src: url('node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2') format('woff2'); unicode-range: U+0000-00FF; }
+@font-face { font-family: 'Inter'; font-weight: 600; src: url('node_modules/@fontsource/inter/files/inter-latin-ext-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 600; src: url('node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2') format('woff2'); unicode-range: U+0000-00FF; }
+@font-face { font-family: 'Montserrat'; font-weight: 700; src: url('node_modules/@fontsource/montserrat/files/montserrat-latin-ext-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Montserrat'; font-weight: 700; src: url('node_modules/@fontsource/montserrat/files/montserrat-latin-700-normal.woff2') format('woff2'); unicode-range: U+0000-00FF; }
+@font-face { font-family: 'Montserrat'; font-weight: 800; src: url('node_modules/@fontsource/montserrat/files/montserrat-latin-ext-800-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Montserrat'; font-weight: 800; src: url('node_modules/@fontsource/montserrat/files/montserrat-latin-800-normal.woff2') format('woff2'); unicode-range: U+0000-00FF; }
+
+/* Dizayn: rəng = məna. Cins: mavi/çəhrayı. Hal: yaşıl/bənövşəyi/narıncı. Tünd göy + qızılı — dərsliyin "cildi". */
+:root {
+  --ink: #1C2333; --muted: #5E6778; --line: #E2E6EE; --paper: #FFFFFF; --tint: #F5F7FB;
+  --navy: #15213B; --gold: #C39A4B; --gold-soft: #F7EEDC;
+  --m: #2459C4; --m-soft: #E5EDFC;
+  --f: #C23A6D; --f-soft: #FCE6EE;
+  --r: #138356; --r-soft: #DDF2E8;
+  --c: #6E43C4; --c-soft: #ECE5FA;
+  --n: #BE6B08; --n-soft: #FDEFD8;
+  --ui: 'Inter', sans-serif; --head: 'Montserrat', 'Inter', sans-serif; --ar: 'Amiri', serif;
+}
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--paper); color: var(--ink); font-family: var(--ui); font-size: 10.5pt; line-height: 1.55; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 210mm; height: 297mm; padding: 14mm 17mm 20mm; position: relative; overflow: hidden; page-break-after: always; display: flex; flex-direction: column; gap: 4mm; }
+.page:last-child { page-break-after: auto; }
+.ar { font-family: var(--ar); direction: rtl; unicode-bidi: isolate; font-size: 1.55em; line-height: 1.5; }
+.tr { font-style: italic; color: var(--muted); }
+b, strong { font-weight: 600; }
+
+/* Səhifə başlığı və altlığı */
+.pagehead { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1.2pt solid var(--ink); padding-bottom: 2.5mm; }
+.pagehead .kicker { font-family: var(--head); font-weight: 700; font-size: 8pt; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+.pagehead .ar { font-size: 15pt; color: var(--muted); }
+.foot { position: absolute; left: 17mm; right: 17mm; bottom: 9mm; display: flex; justify-content: space-between; font-size: 7.5pt; color: var(--muted); }
+h1 { font-family: var(--head); font-weight: 800; font-size: 24pt; line-height: 1.15; letter-spacing: -.01em; }
+h2 { font-family: var(--head); font-weight: 800; font-size: 19pt; line-height: 1.2; display: flex; align-items: baseline; gap: 4mm; flex-wrap: wrap; }
+h2 .ar { font-size: 22pt; color: var(--gold); font-weight: 700; }
+h3 { font-family: var(--head); font-weight: 700; font-size: 11.5pt; display: flex; align-items: center; gap: 2.5mm; }
+.lead { font-size: 11pt; color: #2E3648; max-width: 160mm; }
+.num { display: inline-grid; place-items: center; width: 6.5mm; height: 6.5mm; border-radius: 50%; background: var(--ink); color: #fff; font-family: var(--head); font-size: 8.5pt; font-weight: 700; flex: none; }
+
+/* Cild */
+.cover { background: var(--navy); color: #fff; padding: 22mm 20mm; justify-content: space-between; }
+.cover .top { display: flex; justify-content: space-between; font-family: var(--head); font-weight: 700; font-size: 8.5pt; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+.cover .title-ar { font-family: var(--ar); font-weight: 700; font-size: 64pt; direction: rtl; text-align: right; line-height: 1.3; color: #fff; }
+.cover h1 { font-size: 34pt; color: #fff; }
+.cover .sub { font-size: 12pt; color: #B8C2D8; max-width: 140mm; margin-top: 4mm; }
+.cover .rule { height: 1.2pt; background: var(--gold); width: 46mm; margin: 7mm 0; }
+.toc { display: grid; gap: 3mm; }
+.toc div { display: grid; grid-template-columns: 12mm 1fr auto; align-items: baseline; border-bottom: .6pt solid rgba(255,255,255,.18); padding-bottom: 2mm; font-size: 11pt; }
+.toc span:first-child { font-family: var(--head); color: var(--gold); font-weight: 700; }
+.toc .ar { font-size: 15pt; color: #D6DCEA; }
+.star { position: absolute; right: -40mm; top: 60mm; width: 150mm; height: 150mm; opacity: .07; }
+.legend { display: flex; flex-wrap: wrap; gap: 2.5mm; }
+.legend span { font-size: 8.5pt; font-weight: 600; padding: 1mm 3.5mm; border-radius: 99px; color: #fff; }
+
+/* Çiplər */
+.chip { display: inline-block; font-size: 8pt; font-weight: 600; padding: .4mm 2.6mm; border-radius: 99px; white-space: nowrap; }
+.chip.m { background: var(--m-soft); color: var(--m); } .chip.f { background: var(--f-soft); color: var(--f); }
+.chip.r { background: var(--r-soft); color: var(--r); } .chip.c { background: var(--c-soft); color: var(--c); } .chip.n { background: var(--n-soft); color: var(--n); }
+.w { display: inline-block; font-family: var(--ar); direction: rtl; unicode-bidi: isolate; font-size: 1.6em; line-height: 1.35; padding: 0 2.2mm; border-radius: 1.5mm; border-bottom: 1.4pt solid; }
+.w.m { background: var(--m-soft); border-color: var(--m); } .w.f { background: var(--f-soft); border-color: var(--f); }
+.w.r { background: var(--r-soft); border-color: var(--r); } .w.c { background: var(--c-soft); border-color: var(--c); } .w.n { background: var(--n-soft); border-color: var(--n); }
+
+/* Cədvəllər */
+table { width: 100%; border-collapse: collapse; }
+th { font-family: var(--head); font-size: 7.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); text-align: left; padding: 2mm 3mm; border-bottom: 1pt solid var(--ink); }
+td { padding: 1.5mm 3mm; border-bottom: .5pt solid var(--line); vertical-align: middle; }
+.lex td { padding: .6mm 3mm; }
+.lex td.arc { font-size: 15.5pt; line-height: 1.45; }
+td.arc { font-family: var(--ar); font-size: 17pt; direction: rtl; text-align: right; line-height: 1.35; }
+td.n0 { color: var(--muted); font-size: 8.5pt; width: 8mm; }
+tr.mrow td:first-child { box-shadow: inset 1.2mm 0 var(--m); } tr.frow td:first-child { box-shadow: inset 1.2mm 0 var(--f); }
+
+/* Kartlar */
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm; }
+.card { border-radius: 3mm; padding: 3.5mm 4.5mm; display: flex; flex-direction: column; gap: 1.6mm; border: .8pt solid var(--line); }
+.card.m { background: var(--m-soft); border-color: #C5D5F5; } .card.f { background: var(--f-soft); border-color: #F3C4D5; }
+.card.r { background: var(--r-soft); border-color: #B5E0CB; } .card.c { background: var(--c-soft); border-color: #D2C3F1; } .card.n { background: var(--n-soft); border-color: #F5D3A0; }
+.card .label { font-family: var(--head); font-weight: 800; font-size: 12pt; }
+.card.m .label { color: var(--m); } .card.f .label { color: var(--f); } .card.r .label { color: var(--r); } .card.c .label { color: var(--c); } .card.n .label { color: var(--n); }
+.card .big { font-family: var(--ar); font-size: 26pt; direction: rtl; text-align: right; line-height: 1.25; }
+.card .small { font-size: 9pt; color: #3A4254; }
+.ex { display: flex; align-items: center; justify-content: space-between; gap: 3mm; background: rgba(255,255,255,.7); border-radius: 2mm; padding: 1.5mm 3mm; }
+.ex .ar { font-size: 18pt; line-height: 1.3; }
+.note { border-radius: 3mm; padding: 3.5mm 4.5mm; display: grid; grid-template-columns: auto 1fr; gap: 3mm; align-items: start; }
+.note.gold { background: var(--gold-soft); border: .8pt solid #E6CE9F; }
+.note.grey { background: var(--tint); border: .8pt solid var(--line); }
+.note .tag { font-family: var(--head); font-weight: 800; font-size: 8pt; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); padding-top: .8mm; }
+.note.grey .tag { color: var(--muted); }
+.big-letter { font-family: var(--ar); font-size: 54pt; line-height: 1; color: var(--f); text-align: center; }
+
+/* Addımlar */
+.steps { display: grid; gap: 1.5mm; counter-reset: s; }
+.steps div { display: grid; grid-template-columns: 7mm 1fr; gap: 3mm; align-items: center; }
+.steps div::before { counter-increment: s; content: counter(s); width: 7mm; height: 7mm; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; font-family: var(--head); font-weight: 700; font-size: 9pt; }
+
+/* Çalışmalar */
+.task { border: .8pt solid var(--line); border-radius: 3mm; padding: 3.5mm 5mm; display: flex; flex-direction: column; gap: 2.2mm; break-inside: avoid; }
+.task h3 .num { background: var(--gold); }
+.task .hint { font-size: 9pt; color: var(--muted); }
+.items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5mm 4mm; }
+.items.three { grid-template-columns: repeat(3, 1fr); }
+.items.two { grid-template-columns: repeat(2, 1fr); }
+.item { display: flex; align-items: center; justify-content: space-between; gap: 2mm; border-bottom: .8pt dashed #C9CFDA; padding: .6mm 0 1.2mm; min-height: 9.5mm; }
+.item .i { font-size: 8pt; color: var(--muted); }
+.item .ar { font-size: 18pt; }
+.item .blank { flex: 1; }
+.boxes { display: flex; gap: 1.5mm; }
+.boxes span { width: 9mm; height: 6mm; border: .8pt solid #B9C0CE; border-radius: 1.2mm; font-size: 7pt; display: grid; place-items: center; color: var(--muted); font-weight: 600; }
+.writetbl td { height: 9.5mm; padding: .5mm 3mm; }
+.writetbl td.arc { font-size: 15pt; }
+.writetbl td.blankcell { border-left: .5pt solid var(--line); }
+
+/* Cavablar */
+.ans { display: grid; gap: 3mm; }
+.ans .row { display: grid; grid-template-columns: 30mm 1fr; gap: 4mm; border-bottom: .5pt solid var(--line); padding-bottom: 2.5mm; align-items: start; }
+.ans .row > span:first-child { font-family: var(--head); font-weight: 700; font-size: 9.5pt; }
+.ans .ar { font-size: 15pt; }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ 1. CİLD ═════════════ -->
+<section class="page cover">
+  <svg class="star" viewBox="0 0 100 100"><g fill="none" stroke="#C39A4B" stroke-width="1.2"><rect x="20" y="20" width="60" height="60"/><rect x="20" y="20" width="60" height="60" transform="rotate(45 50 50)"/><circle cx="50" cy="50" r="18"/><circle cx="50" cy="50" r="42"/></g></svg>
+  <div class="top"><span>Ərəb dili</span><span>Dərs 1</span></div>
+  <div>
+    <div class="title-ar">اَللُّغَةُ الْعَرَبِيَّةُ</div>
+    <div class="rule"></div>
+    <h1>Cins və<br>İsmin halı</h1>
+    <p class="sub">Danışmaq, kitab oxuyub mənasını başa düşmək və düzgün yazmaq üçün ərəb dilinin ilk iki qaydası.</p>
+  </div>
+  <div style="display:grid; gap:8mm">
+    <div class="toc">
+      <div><span>01</span><span>Lüğət — 21 söz</span><span class="ar">اَلْمُفْرَدَاتُ</span></div>
+      <div><span>02</span><span>Qayda 1 — Cins</span><span class="ar">اَلْجِنْسُ</span></div>
+      <div><span>03</span><span>Qayda 2 — İsmin halı</span><span class="ar">حَالَاتُ الاِسْمِ</span></div>
+      <div><span>04</span><span>Çalışmalar</span><span class="ar">اَلتَّمَارِينُ</span></div>
+      <div><span>05</span><span>Cavablar</span><span class="ar">اَلْأَجْوِبَةُ</span></div>
+    </div>
+    <div class="legend">
+      <span style="background:var(--m)">Müzəkkər — kişi cinsi</span>
+      <span style="background:var(--f)">Müənnəs — qadın cinsi</span>
+      <span style="background:var(--r)">Raf'un</span>
+      <span style="background:var(--c)">Cərrun</span>
+      <span style="background:var(--n)">Nasbun</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ 2. LÜĞƏT ═════════════ -->
+<section class="page">
+  <div class="pagehead"><span class="kicker">01 · Lüğət</span><span class="ar">اَلْمُفْرَدَاتُ</span></div>
+  <h2>Lüğət <span class="ar">اَلْمُفْرَدَاتُ</span></h2>
+  <p class="lead">Sözü əzbərləyəndə onun <b>cinsini də</b> əzbərləyin. Bütün sözlər adlıq halda (raf'un) verilib.</p>
+  <table class="lex">
+    <thead><tr><th>№</th><th style="text-align:right">Ərəbcə</th><th>Oxunuşu</th><th>Mənası</th><th>Cinsi</th></tr></thead>
+    <tbody>
+      <tr class="mrow"><td class="n0">1</td><td class="arc">كِتَابٌ</td><td class="tr">kitabun</td><td>kitab</td><td><span class="chip m">müzəkkər</span></td></tr>
+      <tr class="mrow"><td class="n0">2</td><td class="arc">قَلَمٌ</td><td class="tr">qaləmun</td><td>qələm</td><td><span class="chip m">müzəkkər</span></td></tr>
+      <tr class="mrow"><td class="n0">3</td><td class="arc">بَيْتٌ</td><td class="tr">beytun</td><td>ev</td><td><span class="chip m">müzəkkər</span></td></tr>
+      <tr class="mrow"><td class="n0">4</td><td class="arc">بَابٌ</td><td class="tr">babun</td><td>qapı</td><td><span class="chip m">müzəkkər</span></td></tr>
+      <tr class="mrow"><td class="n0">5</td><td class="arc">مَسْجِدٌ</td><td class="tr">məscidun</td><td>məscid</td><td><span class="chip m">müzəkkər</span></td></tr>
+      <tr class="mrow"><td class="n0">6</td><td class="arc">دَرْسٌ</td><td class="tr">dərsun</td><td>dərs</td><td><span class="chip m">müzəkkər</span></td></tr>
+      <tr class="mrow"><td class="n0">7</td><td class="arc">وَلَدٌ</td><td class="tr">vələdun</td><td>oğlan</td><td><span class="chip m">müzəkkər</span></td></tr>
+      <tr class="mrow"><td class="n0">8</td><td class="arc">رَجُلٌ</td><td class="tr">racülun</td><td>kişi</td><td><span class="chip m">müzəkkər</span></td></tr>
+      <tr class="mrow"><td class="n0">9</td><td class="arc">مُعَلِّمٌ</td><td class="tr">muəllimun</td><td>müəllim</td><td><span class="chip m">müzəkkər</span></td></tr>
+      <tr class="mrow"><td class="n0">10</td><td class="arc">طَالِبٌ</td><td class="tr">talibun</td><td>tələbə (oğlan)</td><td><span class="chip m">müzəkkər</span></td></tr>
+      <tr class="frow"><td class="n0">11</td><td class="arc">مَدْرَسَةٌ</td><td class="tr">mədrasətun</td><td>məktəb</td><td><span class="chip f">müənnəs</span></td></tr>
+      <tr class="frow"><td class="n0">12</td><td class="arc">سَيَّارَةٌ</td><td class="tr">səyyarətun</td><td>maşın</td><td><span class="chip f">müənnəs</span></td></tr>
+      <tr class="frow"><td class="n0">13</td><td class="arc">غُرْفَةٌ</td><td class="tr">ğurfətun</td><td>otaq</td><td><span class="chip f">müənnəs</span></td></tr>
+      <tr class="frow"><td class="n0">14</td><td class="arc">شَجَرَةٌ</td><td class="tr">şəcərətun</td><td>ağac</td><td><span class="chip f">müənnəs</span></td></tr>
+      <tr class="frow"><td class="n0">15</td><td class="arc">وَرَقَةٌ</td><td class="tr">vərəqətun</td><td>vərəq</td><td><span class="chip f">müənnəs</span></td></tr>
+      <tr class="frow"><td class="n0">16</td><td class="arc">تُفَّاحَةٌ</td><td class="tr">tuffahətun</td><td>alma</td><td><span class="chip f">müənnəs</span></td></tr>
+      <tr class="frow"><td class="n0">17</td><td class="arc">مُعَلِّمَةٌ</td><td class="tr">muəllimətun</td><td>müəllimə</td><td><span class="chip f">müənnəs</span></td></tr>
+      <tr class="frow"><td class="n0">18</td><td class="arc">طَالِبَةٌ</td><td class="tr">talibətun</td><td>tələbə (qız)</td><td><span class="chip f">müənnəs</span></td></tr>
+      <tr class="frow"><td class="n0">19</td><td class="arc">زَيْنَبُ</td><td class="tr">Zeynəbu</td><td>Zeynəb (qadın adı)</td><td><span class="chip f">müənnəs · mənaca</span></td></tr>
+      <tr class="frow"><td class="n0">20</td><td class="arc">أُمٌّ</td><td class="tr">ummun</td><td>ana</td><td><span class="chip f">müənnəs · mənaca</span></td></tr>
+      <tr class="frow"><td class="n0">21</td><td class="arc">بِنْتٌ</td><td class="tr">bintun</td><td>qız</td><td><span class="chip f">müənnəs · mənaca</span></td></tr>
+    </tbody>
+  </table>
+  <div class="foot"><span>Ərəb dili · Dərs 1</span><span>2</span></div>
+</section>
+
+<!-- ═════════════ 3. QAYDA 1 — CİNS ═════════════ -->
+<section class="page">
+  <div class="pagehead"><span class="kicker">02 · Qayda 1</span><span class="ar">اَلْجِنْسُ</span></div>
+  <h2>Cins <span class="ar">اَلْجِنْسُ</span></h2>
+  <p class="lead">Ərəb dilində <b>2 cins</b> var: kişi cinsi — <b style="color:var(--m)">müzəkkər</b>, qadın cinsi — <b style="color:var(--f)">müənnəs</b>.</p>
+
+  <div class="grid2">
+    <div class="card m">
+      <span class="label">Müzəkkər</span>
+      <div class="big">اَلْمُذَكَّرُ</div>
+      <span class="small"><b>Kişi cinsi.</b> Kişi cinsinin xüsusi şəkilçisi yoxdur. Ona görə sözü əzbərləyəndə onun cinsini də əzbərləyirik.</span>
+      <div class="ex"><span><b>kitabun</b> — kitab</span><span class="ar">كِتَابٌ</span></div>
+      <span class="small">Sonunda tə mərbutə olmadığı üçün kişi cinsində hesab olunur.</span>
+    </div>
+    <div class="card f">
+      <span class="label">Müənnəs</span>
+      <div class="big">اَلْمُؤَنَّثُ</div>
+      <span class="small"><b>Qadın cinsi.</b> Qadın cinsinin şəkilçisi <b>tə mərbutədir</b>. Sözün sonunda tə mərbutə varsa, söz qadın cinsində hesab olunur.</span>
+      <div class="ex"><span><b>mədrasətun</b> — məktəb</span><span class="ar">مَدْرَسَةٌ</span></div>
+      <span class="small">Sonunda tə mərbutə olduğu üçün qadın cinsindədir.</span>
+    </div>
+  </div>
+
+  <div class="grid2" style="grid-template-columns: 42mm 1fr; align-items:stretch">
+    <div class="card f" style="justify-content:center; align-items:center">
+      <div class="big-letter">ة</div>
+      <span class="small" style="text-align:center"><b>tə mərbutə</b><br>qadın cinsinin şəkilçisi</span>
+    </div>
+    <div class="card" style="background:var(--tint)">
+      <h3><span class="num" style="background:var(--f)">!</span>Mənasına görə müənnəs</h3>
+      <span class="small">Bəzi sözlərdə tə mərbutə olmasa belə, onlar <b>mənasına görə</b> qadın cinsində hesab olunur, çünki mənası qadına aiddir.</span>
+      <div class="ex"><span><b>Zeynəbu</b> — Zeynəb (qadın adı)</span><span class="ar">زَيْنَبُ</span></div>
+      <div class="ex"><span><b>ummun</b> — ana</span><span class="ar">أُمٌّ</span></div>
+      <div class="ex"><span><b>bintun</b> — qız</span><span class="ar">بِنْتٌ</span></div>
+    </div>
+  </div>
+
+  <div class="note grey"><span class="tag">İstisnalar</span><span>Bu qaydanın istisnaları da var. İstisna olan sözləri lüğət əzbərləyərkən müəllim ayrıca deyəcək. Belə sözləri cinsi ilə birlikdə yadda saxlayın.</span></div>
+
+  <div class="card" style="gap:3mm">
+    <h3><span class="num">✓</span>Yadda saxla: sözün cinsini necə tapırıq?</h3>
+    <div class="steps">
+      <div><span>Sözün sonuna baxırıq. <b>Tə mərbutə (ة) varsa</b> → söz <b style="color:var(--f)">müənnəsdir</b>: <span class="ar">سَيَّارَةٌ</span></span></div>
+      <div><span>Tə mərbutə yoxdur, amma <b>mənası qadına aiddirsə</b> → yenə <b style="color:var(--f)">müənnəsdir</b>: <span class="ar">زَيْنَبُ</span></span></div>
+      <div><span>Heç biri deyilsə → söz <b style="color:var(--m)">müzəkkərdir</b>: <span class="ar">قَلَمٌ</span></span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Ərəb dili · Dərs 1</span><span>3</span></div>
+</section>
+
+<!-- ═════════════ 4. QAYDA 2 — İSMİN HALI ═════════════ -->
+<section class="page">
+  <div class="pagehead"><span class="kicker">03 · Qayda 2</span><span class="ar">حَالَاتُ الاِسْمِ</span></div>
+  <h2>İsmin halı <span class="ar">حَالَاتُ الاِسْمِ</span></h2>
+  <p class="lead">Ərəb dilində ismin <b>3 halı</b> var. Hər halın öz şəkilçisi var. Şəkilçi sözün son hərfinin üzərindəki <b>tənvindir</b>.</p>
+
+  <div class="grid3">
+    <div class="card r">
+      <span class="label">Raf'un</span>
+      <div class="big">رَفْعٌ</div>
+      <span class="small"><b>Adlıq hal</b><br>Şəkilçisi: <b>tənvin-i zəmmə</b> <span class="ar">ـٌ</span></span>
+      <div class="ex"><span><b>kitabun</b><br><span class="small">kitab</span></span><span class="ar">كِتَابٌ</span></div>
+    </div>
+    <div class="card c">
+      <span class="label">Cərrun</span>
+      <div class="big">جَرٌّ</div>
+      <span class="small"><b>Yiyəlik hal</b><br>Şəkilçisi: <b>tənvin-i kəsrə</b> <span class="ar">ـٍ</span></span>
+      <div class="ex"><span><b>kitabin</b><br><span class="small">kitabın</span></span><span class="ar">كِتَابٍ</span></div>
+    </div>
+    <div class="card n">
+      <span class="label">Nasbun</span>
+      <div class="big">نَصْبٌ</div>
+      <span class="small"><b>Təsirli hal</b><br>Şəkilçisi: <b>tənvin-i fəthə</b> <span class="ar">ـً</span></span>
+      <div class="ex"><span><b>kitabən</b><br><span class="small">kitabı</span></span><span class="ar">كِتَابًا</span></div>
+    </div>
+  </div>
+
+  <div class="note gold">
+    <span class="tag">Qeyd</span>
+    <span><b>Tənvin-i fəthədən sonra mütləq əlif (ا) hərfi yazılır.</b><br>
+      <span class="ar">كِتَابٌ</span> → <span class="w n">كِتَابًا</span> <i>kitabən</i> &nbsp;·&nbsp;
+      <span class="ar">قَلَمٌ</span> → <span class="w n">قَلَمًا</span> <i>qaləmən</i> &nbsp;·&nbsp;
+      <span class="ar">بَيْتٌ</span> → <span class="w n">بَيْتًا</span> <i>beytən</i></span>
+  </div>
+  <div class="note gold" style="background:var(--f-soft); border-color:#F3C4D5">
+    <span class="tag" style="color:var(--f)">İstisna</span>
+    <span><b>Tənvin-i fəthə tə mərbutənin üzərinə gəlsə, ondan sonra əlif yazılmır.</b><br>
+      <span class="ar">مَدْرَسَةٌ</span> → <span class="w n">مَدْرَسَةً</span> <i>mədrasətən</i> &nbsp;·&nbsp;
+      <span class="ar">سَيَّارَةٌ</span> → <span class="w n">سَيَّارَةً</span> <i>səyyarətən</i></span>
+  </div>
+
+  <h3><span class="num">✓</span>Bir söz — üç hal</h3>
+  <table>
+    <thead><tr><th>Söz</th><th style="color:var(--r)">Raf'un · adlıq</th><th style="color:var(--c)">Cərrun · yiyəlik</th><th style="color:var(--n)">Nasbun · təsirli</th></tr></thead>
+    <tbody>
+      <tr><td>kitab <span class="chip m">m</span></td><td class="arc">كِتَابٌ</td><td class="arc">كِتَابٍ</td><td class="arc">كِتَابًا</td></tr>
+      <tr><td>qələm <span class="chip m">m</span></td><td class="arc">قَلَمٌ</td><td class="arc">قَلَمٍ</td><td class="arc">قَلَمًا</td></tr>
+      <tr><td>məktəb <span class="chip f">f</span></td><td class="arc">مَدْرَسَةٌ</td><td class="arc">مَدْرَسَةٍ</td><td class="arc">مَدْرَسَةً</td></tr>
+      <tr><td>ağac <span class="chip f">f</span></td><td class="arc">شَجَرَةٌ</td><td class="arc">شَجَرَةٍ</td><td class="arc">شَجَرَةً</td></tr>
+      <tr><td style="color:var(--muted); font-size:8.5pt">oxunuşu</td><td class="tr">kitabun · mədrasətun</td><td class="tr">kitabin · mədrasətin</td><td class="tr">kitabən · mədrasətən</td></tr>
+    </tbody>
+  </table>
+  <div class="foot"><span>Ərəb dili · Dərs 1</span><span>4</span></div>
+</section>
+
+<!-- ═════════════ 5. ÇALIŞMALAR (1) ═════════════ -->
+<section class="page">
+  <div class="pagehead"><span class="kicker">04 · Çalışmalar</span><span class="ar">اَلتَّمَارِينُ</span></div>
+  <h2>Çalışmalar <span class="ar">اَلتَّمَارِينُ</span></h2>
+
+  <div class="task">
+    <h3><span class="num">1</span>Sözün cinsini qeyd edin</h3>
+    <span class="hint">M — müzəkkər, Q — müənnəs. Uyğun xananı işarələyin.</span>
+    <div class="items">
+      <div class="item"><span class="ar">بَابٌ</span><span class="boxes"><span>M</span><span>Q</span></span></div>
+      <div class="item"><span class="ar">غُرْفَةٌ</span><span class="boxes"><span>M</span><span>Q</span></span></div>
+      <div class="item"><span class="ar">مَسْجِدٌ</span><span class="boxes"><span>M</span><span>Q</span></span></div>
+      <div class="item"><span class="ar">وَرَقَةٌ</span><span class="boxes"><span>M</span><span>Q</span></span></div>
+      <div class="item"><span class="ar">زَيْنَبُ</span><span class="boxes"><span>M</span><span>Q</span></span></div>
+      <div class="item"><span class="ar">دَرْسٌ</span><span class="boxes"><span>M</span><span>Q</span></span></div>
+      <div class="item"><span class="ar">تُفَّاحَةٌ</span><span class="boxes"><span>M</span><span>Q</span></span></div>
+      <div class="item"><span class="ar">رَجُلٌ</span><span class="boxes"><span>M</span><span>Q</span></span></div>
+      <div class="item"><span class="ar">أُمٌّ</span><span class="boxes"><span>M</span><span>Q</span></span></div>
+      <div class="item"><span class="ar">طَالِبَةٌ</span><span class="boxes"><span>M</span><span>Q</span></span></div>
+      <div class="item"><span class="ar">بَيْتٌ</span><span class="boxes"><span>M</span><span>Q</span></span></div>
+      <div class="item"><span class="ar">بِنْتٌ</span><span class="boxes"><span>M</span><span>Q</span></span></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <h3><span class="num">2</span>Niyə qadın cinsindədir?</h3>
+    <span class="hint">Hər söz üçün səbəbi seçin: <b>Ş</b> — şəkilçiyə (tə mərbutəyə) görə, <b>M</b> — mənasına görə.</span>
+    <div class="items three">
+      <div class="item"><span class="ar">سَيَّارَةٌ</span><span class="boxes"><span>Ş</span><span>M</span></span></div>
+      <div class="item"><span class="ar">زَيْنَبُ</span><span class="boxes"><span>Ş</span><span>M</span></span></div>
+      <div class="item"><span class="ar">شَجَرَةٌ</span><span class="boxes"><span>Ş</span><span>M</span></span></div>
+      <div class="item"><span class="ar">بِنْتٌ</span><span class="boxes"><span>Ş</span><span>M</span></span></div>
+      <div class="item"><span class="ar">مُعَلِّمَةٌ</span><span class="boxes"><span>Ş</span><span>M</span></span></div>
+      <div class="item"><span class="ar">أُمٌّ</span><span class="boxes"><span>Ş</span><span>M</span></span></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <h3><span class="num">3</span>Sözün halını müəyyən edin</h3>
+    <span class="hint">R — raf'un (adlıq), C — cərrun (yiyəlik), N — nasbun (təsirli).</span>
+    <div class="items">
+      <div class="item"><span class="ar">كِتَابًا</span><span class="boxes"><span>R</span><span>C</span><span>N</span></span></div>
+      <div class="item"><span class="ar">مَدْرَسَةٍ</span><span class="boxes"><span>R</span><span>C</span><span>N</span></span></div>
+      <div class="item"><span class="ar">قَلَمٌ</span><span class="boxes"><span>R</span><span>C</span><span>N</span></span></div>
+      <div class="item"><span class="ar">بَيْتًا</span><span class="boxes"><span>R</span><span>C</span><span>N</span></span></div>
+      <div class="item"><span class="ar">شَجَرَةً</span><span class="boxes"><span>R</span><span>C</span><span>N</span></span></div>
+      <div class="item"><span class="ar">وَلَدٍ</span><span class="boxes"><span>R</span><span>C</span><span>N</span></span></div>
+      <div class="item"><span class="ar">غُرْفَةٌ</span><span class="boxes"><span>R</span><span>C</span><span>N</span></span></div>
+      <div class="item"><span class="ar">بَابٍ</span><span class="boxes"><span>R</span><span>C</span><span>N</span></span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Ərəb dili · Dərs 1</span><span>5</span></div>
+</section>
+
+<!-- ═════════════ 6. ÇALIŞMALAR (2) ═════════════ -->
+<section class="page">
+  <div class="pagehead"><span class="kicker">04 · Çalışmalar</span><span class="ar">اَلتَّمَارِينُ</span></div>
+
+  <div class="task">
+    <h3><span class="num">4</span>Sözləri üç halda yazın</h3>
+    <span class="hint">Tənvin-i fəthədən sonra əlifi unutmayın. Tə mərbutədə isə əlif yazılmır.</span>
+    <table class="writetbl">
+      <thead><tr><th>Söz</th><th style="color:var(--r)">Raf'un</th><th style="color:var(--c)">Cərrun</th><th style="color:var(--n)">Nasbun</th></tr></thead>
+      <tbody>
+        <tr><td class="arc" style="width:30mm">بَاب</td><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td></tr>
+        <tr><td class="arc">وَلَد</td><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td></tr>
+        <tr><td class="arc">غُرْفَة</td><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td></tr>
+        <tr><td class="arc">سَيَّارَة</td><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td></tr>
+        <tr><td class="arc">دَرْس</td><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="task">
+    <h3><span class="num">5</span>Səhvi tapın və düzgün yazın</h3>
+    <span class="hint">Bəzi sözlər səhv yazılıb, bəziləri düzgündür.</span>
+    <div class="items two">
+      <div class="item"><span class="i">1</span><span class="ar">قَلَمً</span><span class="blank"></span></div>
+      <div class="item"><span class="i">2</span><span class="ar">مَدْرَسَةًا</span><span class="blank"></span></div>
+      <div class="item"><span class="i">3</span><span class="ar">بَيْتًا</span><span class="blank"></span></div>
+      <div class="item"><span class="i">4</span><span class="ar">وَرَقَةًا</span><span class="blank"></span></div>
+      <div class="item"><span class="i">5</span><span class="ar">كِتَابً</span><span class="blank"></span></div>
+      <div class="item"><span class="i">6</span><span class="ar">شَجَرَةً</span><span class="blank"></span></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <h3><span class="num">6</span>Ərəbcə yazın</h3>
+    <span class="hint">Azərbaycan dilindəki halı ərəbcəyə köçürün: adlıq → raf'un, yiyəlik (-ın) → cərrun, təsirli (-ı) → nasbun.</span>
+    <div class="items three">
+      <div class="item"><span>evin</span><span class="blank"></span></div>
+      <div class="item"><span>qələmi</span><span class="blank"></span></div>
+      <div class="item"><span>maşın</span><span class="blank"></span></div>
+      <div class="item"><span>otağı</span><span class="blank"></span></div>
+      <div class="item"><span>məktəbin</span><span class="blank"></span></div>
+      <div class="item"><span>almanı</span><span class="blank"></span></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <h3><span class="num">7</span>Oxuyun və oxunuşunu yazın</h3>
+    <div class="items">
+      <div class="item"><span class="ar">مُعَلِّمًا</span><span class="blank"></span></div>
+      <div class="item"><span class="ar">طَالِبَةٍ</span><span class="blank"></span></div>
+      <div class="item"><span class="ar">مَسْجِدٌ</span><span class="blank"></span></div>
+      <div class="item"><span class="ar">وَرَقَةً</span><span class="blank"></span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Ərəb dili · Dərs 1</span><span>6</span></div>
+</section>
+
+<!-- ═════════════ 7. CAVABLAR ═════════════ -->
+<section class="page">
+  <div class="pagehead"><span class="kicker">05 · Cavablar</span><span class="ar">اَلْأَجْوِبَةُ</span></div>
+  <h2>Cavablar <span class="ar">اَلْأَجْوِبَةُ</span></h2>
+  <div class="ans">
+    <div class="row"><span>Çalışma 1</span><span>
+      <b style="color:var(--m)">M:</b> <span class="ar">بَابٌ، مَسْجِدٌ، دَرْسٌ، رَجُلٌ، بَيْتٌ</span><br>
+      <b style="color:var(--f)">Q:</b> <span class="ar">غُرْفَةٌ، وَرَقَةٌ، زَيْنَبُ، تُفَّاحَةٌ، أُمٌّ، طَالِبَةٌ، بِنْتٌ</span></span></div>
+    <div class="row"><span>Çalışma 2</span><span>
+      <b>Ş (tə mərbutə):</b> <span class="ar">سَيَّارَةٌ، شَجَرَةٌ، مُعَلِّمَةٌ</span><br>
+      <b>M (mənaca):</b> <span class="ar">زَيْنَبُ، بِنْتٌ، أُمٌّ</span></span></div>
+    <div class="row"><span>Çalışma 3</span><span>
+      <span class="ar">كِتَابًا</span> N · <span class="ar">مَدْرَسَةٍ</span> C · <span class="ar">قَلَمٌ</span> R · <span class="ar">بَيْتًا</span> N ·
+      <span class="ar">شَجَرَةً</span> N · <span class="ar">وَلَدٍ</span> C · <span class="ar">غُرْفَةٌ</span> R · <span class="ar">بَابٍ</span> C</span></div>
+    <div class="row"><span>Çalışma 4</span><span>
+      <span class="ar">بَابٌ · بَابٍ · بَابًا</span><br>
+      <span class="ar">وَلَدٌ · وَلَدٍ · وَلَدًا</span><br>
+      <span class="ar">غُرْفَةٌ · غُرْفَةٍ · غُرْفَةً</span><br>
+      <span class="ar">سَيَّارَةٌ · سَيَّارَةٍ · سَيَّارَةً</span><br>
+      <span class="ar">دَرْسٌ · دَرْسٍ · دَرْسًا</span></span></div>
+    <div class="row"><span>Çalışma 5</span><span>
+      1 <span class="ar">قَلَمًا</span> (əlif yazılmalıdır) · 2 <span class="ar">مَدْرَسَةً</span> (tə mərbutədən sonra əlif yazılmır) · 3 düzgündür ·
+      4 <span class="ar">وَرَقَةً</span> · 5 <span class="ar">كِتَابًا</span> · 6 düzgündür</span></div>
+    <div class="row"><span>Çalışma 6</span><span>
+      evin <span class="ar">بَيْتٍ</span> · qələmi <span class="ar">قَلَمًا</span> · maşın <span class="ar">سَيَّارَةٌ</span> ·
+      otağı <span class="ar">غُرْفَةً</span> · məktəbin <span class="ar">مَدْرَسَةٍ</span> · almanı <span class="ar">تُفَّاحَةً</span></span></div>
+    <div class="row"><span>Çalışma 7</span><span><i>muəllimən</i> · <i>talibətin</i> · <i>məscidun</i> · <i>vərəqətən</i></span></div>
+  </div>
+  <div class="foot"><span>Ərəb dili · Dərs 1</span><span>7</span></div>
+</section>
+</body>
+</html>

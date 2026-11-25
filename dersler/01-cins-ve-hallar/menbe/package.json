@@ -1,0 +1,13 @@
+{
+  "name": "ereb-dili-ders-1",
+  "private": true,
+  "description": "Ərəb dili, 1-ci dərs PDF-inin mənbəyi (HTML → PDF)",
+  "scripts": {
+    "pdf": "node render.js ../erebce-ders-1-cins-ve-hallar.pdf"
+  },
+  "dependencies": {
+    "@fontsource/amiri": "5.1.1",
+    "@fontsource/inter": "5.1.1",
+    "@fontsource/montserrat": "5.1.1"
+  }
+}
