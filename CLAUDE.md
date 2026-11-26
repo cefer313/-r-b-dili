@@ -21,6 +21,7 @@ Bu fayldakı qaydalara hər söhbətdə əməl et.
   - hazır PDF,
   - `menbe/` — PDF-i yaradan HTML (`ders.html`), `render.js`, `package.json`,
   - (lazım olsa) interaktiv veb variant,
+  - (lazım olsa) animasiya videosu: `video/` — Remotion layihəsi, hazır MP4 dərs qovluğunda (`dersler/02-shexs-evezlikleri/video/` nümunədir). Videoda dil məktəbli uşağa izah edən kimi sadə olur,
   - qısa `README.md`.
 - Növbəti dərs: `dersler/02-...`, `dersler/03-...` və s.
 
