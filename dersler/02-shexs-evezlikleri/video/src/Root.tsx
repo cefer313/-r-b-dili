@@ -2,7 +2,7 @@ import React from 'react';
 import { Audio, Composition, Series, Sequence, staticFile } from 'remotion';
 import SES from './ses.json';
 import { useFonts } from './kit';
-import { Dialog, Fourteen, Gender, GroupScene, Intro, MeWe, Number3, Outro, Quiz, Same, Summary, Who, Words } from './scenes';
+import { QUIZ_REVEAL, Dialog, Fourteen, Gender, GroupScene, Intro, MeWe, Number3, Outro, Quiz, Same, Summary, Who, Words } from './scenes';
 
 const S = 30; // 1 saniyə = 30 kadr
 
@@ -33,10 +33,17 @@ const SCENES: { d: number; el: (d: number) => React.ReactElement }[] = [
 // Səs: src/ses.json — hər hissənin müddəti (saniyə), public/ses/NN.mp3 (ses-hazirla.mjs yaradır).
 // Səs səhnənin 0.4-cü saniyəsində başlayır; səhnə səsdən ən azı 1 saniyə uzun olur.
 const VOICE_START = 12;
-const voice = (i: number): number | undefined => (SES as Record<string, number>)[String(i + 1).padStart(2, '0')];
+// Testdə cavabın səsi ayrıca faylda: NNb.mp3 — cavab ekranda görünəndə (QUIZ_REVEAL) səslənir.
+const nn = (i: number) => String(i + 1).padStart(2, '0');
+const voice = (i: number): number | undefined => (SES as Record<string, number>)[nn(i)];
+const answer = (i: number): number | undefined => (SES as Record<string, number>)[nn(i) + 'b'];
 const sceneLen = (i: number) => {
   const v = voice(i);
-  return v ? Math.max(SCENES[i].d, VOICE_START + Math.ceil((v + 1) * S)) : SCENES[i].d;
+  const a = answer(i);
+  let d = SCENES[i].d;
+  if (v) d = Math.max(d, VOICE_START + Math.ceil((v + 1) * S));
+  if (a) d = Math.max(d, QUIZ_REVEAL + Math.ceil((a + 1.5) * S));
+  return d;
 };
 export const TOTAL = SCENES.reduce((a, _, i) => a + sceneLen(i), 0);
 
@@ -49,7 +56,8 @@ const Video: React.FC = () => {
         return (
           <Series.Sequence key={i} durationInFrames={d}>
             {s.el(d)}
-            {voice(i) && <Sequence from={VOICE_START} layout="none"><Audio src={staticFile(`ses/${String(i + 1).padStart(2, '0')}.mp3`)} /></Sequence>}
+            {voice(i) && <Sequence from={VOICE_START} layout="none"><Audio src={staticFile(`ses/${nn(i)}.mp3`)} /></Sequence>}
+            {answer(i) && <Sequence from={QUIZ_REVEAL} layout="none"><Audio src={staticFile(`ses/${nn(i)}b.mp3`)} /></Sequence>}
           </Series.Sequence>
         );
       })}

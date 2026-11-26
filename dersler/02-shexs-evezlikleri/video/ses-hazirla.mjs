@@ -1,7 +1,7 @@
 // Müəllimin səs yazısını videoya hazırlayır:
-//   node ses-hazirla.mjs [ses növü]        ses növü: derin (default) | ince
+//   node ses-hazirla.mjs [ses növü]        ses növü: derin (default) | ince | usaq
 // Giriş: ses-xam/ qovluğu (gitə düşmür):
-//   • ya 21 ayrı fayl: 01.m4a, 02.m4a … 21.m4a (istənilən səs formatı),
+//   • ya 21 ayrı fayl: 01.m4a, 02.m4a … 21.m4a (istənilən səs formatı); testdə cavab üçün 15b … 18b,
 //   • ya bir fayl — hissələr arasında ~2 saniyəlik pauza ilə; skript onu pauzalardan 21 hissəyə bölür.
 //     Kəsilmə yerləri əl ilə də verilə bilər: ses-xam/kesikler.txt — 20 rəqəm (saniyə), hər sətirdə biri.
 // Çıxış: public/ses/01.mp3 … 21.mp3 (səs dəyişdirilmiş) və src/ses.json (hər hissənin müddəti).
@@ -16,8 +16,9 @@ const outDir = path.join(here, 'public', 'ses');
 
 // Səsin tembrini dəyişən ayarlar: pitch — ucalıq, formant da birlikdə sürüşür ki, səs tanınmasın.
 const PRESETS = {
-  derin: 'rubberband=pitch=0.84:formant=shifted:pitchq=quality',
-  ince: 'rubberband=pitch=1.2:formant=shifted:pitchq=quality',
+  derin: 'rubberband=pitch=0.84:formant=shifted',
+  ince: 'rubberband=pitch=1.2:formant=shifted',
+  usaq: 'rubberband=pitch=1.18:formant=shifted', // Higgsfield «Pixie» səsini uşaq səsinə yaxınlaşdırmaq üçün
 };
 const kind = process.argv[2] ?? 'derin';
 if (!PRESETS[kind]) throw new Error(`Naməlum səs növü: ${kind}. Seçin: ${Object.keys(PRESETS).join(', ')}`);
@@ -30,9 +31,9 @@ const cutFile = path.join(rawDir, 'kesikler.txt');
 mkdirSync(outDir, { recursive: true });
 
 let parts; // [{ nn, file, start?, end? }]
-const numbered = files.filter((f) => /^\d{1,2}\./.test(f));
+const numbered = files.filter((f) => /^\d{1,2}b?\./.test(f));
 if (numbered.length > 0) {
-  parts = numbered.map((f) => ({ nn: String(parseInt(f, 10)).padStart(2, '0'), file: path.join(rawDir, f) }));
+  parts = numbered.map((f) => ({ nn: String(parseInt(f, 10)).padStart(2, '0') + (/^\d+b\./.test(f) ? 'b' : ''), file: path.join(rawDir, f) }));
   const missing = Array.from({ length: PARTS }, (_, i) => String(i + 1).padStart(2, '0')).filter((nn) => !parts.some((p) => p.nn === nn));
   if (missing.length) console.log('Diqqət, bu hissələr yoxdur (səhnə səssiz qalacaq):', missing.join(', '));
 } else if (files.length === 1) {
@@ -67,8 +68,9 @@ for (const p of parts) {
   const out = path.join(outDir, `${p.nn}.mp3`);
   // təmizləmə → səsi dəyişmək → baş/son sükutu kəsmək → səs səviyyəsini bərabərləşdirmək
   const af = [
-    'highpass=f=70', 'afftdn=nf=-25',
-    PRESETS[kind],
+    // əvvəl mono/48 kHz: rubberband bəzi fayllarda (44.1 kHz) sonda ilişib qalırdı
+    'aformat=channel_layouts=mono:sample_rates=48000', 'highpass=f=70', 'afftdn=nf=-25',
+    PRESETS[kind], 'apad=pad_dur=0.3',
     'silenceremove=start_periods=1:start_threshold=-40dB:start_silence=0.1',
     'areverse', 'silenceremove=start_periods=1:start_threshold=-40dB:start_silence=0.25', 'areverse',
     'loudnorm=I=-16:TP=-1.5:LRA=11', 'aresample=48000',

@@ -261,9 +261,10 @@ export const Dialog: React.FC<{ dur: number; title: string; left: G; right: G; q
 );
 
 /* 15. Sınaq */
+export const QUIZ_REVEAL = 200; // cavabın göründüyü kadr (cavabın səsi də bu anda başlayır)
 export const Quiz: React.FC<{ dur: number; n: number; gs: G[]; ask: string; you?: boolean; g: G; ar: string; rd: string; mn: string }> = ({ dur, n, gs, ask, you, g, ar, rd, mn }) => {
   const frame = useCurrentFrame();
-  const reveal = 200;
+  const reveal = QUIZ_REVEAL;
   const count = frame < 60 ? null : frame < reveal ? Math.max(1, 5 - Math.floor((frame - 60) / 28)) : null;
   const tick = usePop(60 + (5 - (count ?? 5)) * 28, 10);
   return (

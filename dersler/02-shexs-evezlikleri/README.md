@@ -2,7 +2,7 @@
 
 - **`erebce-ders-2-shexs-evezlikleri.pdf`** — 8 səhifəlik A4 dərslik:
   üz qabığı → lüğət (10 yeni söz) → Qayda: şəxs və say (tək / ikilik / cəm) → Qayda: 14 şəxs əvəzliyi (cədvəl və siyahı) → sual əvəzliyi مَنْ (kim?) → 2 çalışma → cavablar.
-- **`erebce-ders-2-video.mp4`** — dərsin animasiya videosu (4 dəq 44 san, 1920×1080, müəllimin səsi ilə — səsin tembri dəyişdirilib). Uşaq üçün sadə dildə: cins, say, 14 əvəzlik, مَنْ «kim?», 4 sualdan ibarət sınaq, yeni sözlər.
+- **`erebce-ders-2-video.mp4`** — dərsin animasiya videosu (4 dəq 44 san, 1920×1080, uşaq səsi ilə; səs Higgsfield-də ElevenLabs «Pixie» səsi ilə yaradılıb, sonra bir az zilləşdirilib). Uşaq üçün sadə dildə: cins, say, 14 əvəzlik, مَنْ «kim?», 4 sualdan ibarət sınaq, yeni sözlər.
 - **`video/`** — videonun mənbəyi (Remotion). Dəyişiklik etmək üçün `video/src/` fayllarını redaktə edin və yenidən yaradın:
 
 ```bash
@@ -11,7 +11,7 @@ npm install
 npm run render
 ```
 
-  **Səsləndirmə:** mətn — `video/seslendirme.md`. Səs yazısını `video/ses-xam/` qovluğuna qoyun (ya `01.m4a` … `21.m4a`, ya da hissələr arasında ~2 saniyə pauza olan tək fayl), sonra `node ses-hazirla.mjs` (səsin tembri dəyişdirilir; `derin` və ya `ince`) və `npm run render`. Xam yazı gitə düşmür.
+  **Səsləndirmə:** mətn — `video/seslendirme.md`. Hazırkı səs: Higgsfield (ElevenLabs, «Pixie»), fayllar `video/ses-xam/` qovluğuna `01.mp3 … 21.mp3`, testdə cavablar `15b … 18b` adı ilə qoyulub `node ses-hazirla.mjs usaq` ilə emal olunub. Səs yazısını `video/ses-xam/` qovluğuna qoyun (ya `01.m4a` … `21.m4a`, ya da hissələr arasında ~2 saniyə pauza olan tək fayl), sonra `node ses-hazirla.mjs` (səsin tembri dəyişdirilir; `derin` və ya `ince`) və `npm run render`. Xam yazı gitə düşmür.
 
 - **`menbe/`** — PDF-in mənbəyi. Dəyişiklik etmək üçün `ders.html`-i redaktə edin və yenidən yaradın:
 
