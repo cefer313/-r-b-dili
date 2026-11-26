@@ -21,7 +21,7 @@ Bu fayldakı qaydalara hər söhbətdə əməl et.
   - hazır PDF,
   - `menbe/` — PDF-i yaradan HTML (`ders.html`), `render.js`, `package.json`,
   - (lazım olsa) interaktiv veb variant,
-  - (lazım olsa) animasiya videosu: `video/` — Remotion layihəsi, hazır MP4 dərs qovluğunda (`dersler/02-shexs-evezlikleri/video/` nümunədir). Videoda dil məktəbli uşağa izah edən kimi sadə olur,
+  - (lazım olsa) animasiya videosu: `video/` — Remotion layihəsi, hazır MP4 dərs qovluğunda (`dersler/02-shexs-evezlikleri/video/` nümunədir). Videoda dil məktəbli uşağa izah edən kimi sadə olur. Video **səsli** olur: səsləndirmə Higgsfield-də (ElevenLabs mühərriki), **«Callan»** səsi ilə (voice_id `d8061b90-ff25-5882-8384-7a6a28806f30`), hər səhnə ayrıca,
   - qısa `README.md`.
 - Növbəti dərs: `dersler/02-...`, `dersler/03-...` və s.
 
@@ -73,3 +73,4 @@ Yeni dərs hazırlananda bu siyahıya onun qaydalarını da əlavə et ki, növb
 
 - 2026-11-25 — Bu fayl yaradıldı; 1-ci dərs `iphone` repozitoriyasından köçürüldü.
 - 2026-11-26 — Oxunuşda qalın hərflərin fəthəsi «a» yazılır (sadiqun, tabibun, sadiqatun, tabibətun).
+- 2026-11-26 — Dərs videoları Higgsfield-də «Callan» səsi ilə səsləndirilir.
