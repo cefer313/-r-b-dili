@@ -30,6 +30,7 @@ Bu fayldakı qaydalara hər söhbətdə əməl et.
 - Yeni dərslər 1-ci dərsin dizaynında olur (`dersler/01-cins-ve-hallar/menbe/ders.html` nümunədir).
 - **Yalnız istifadəçinin verdiyi qaydaları** yaz; öz tərəfindən yeni qayda əlavə etmə. Misalları istifadəçinin verdiyi kimi saxla.
 - **Oxunuşları istifadəçinin yazdığı kimi** yaz: kitabun, kitabin, kitabən, mədrasətun, mədrasətən, Zeynəbu; hal adları — Raf'un, Cərrun, Nasbun; tə mərbutə, tənvin-i zəmmə / kəsrə / fəthə; yiyəlik hal (istifadəçi "yəli hal" deyə bilər).
+- **Qalın hərflərə diqqət:** qalın hərfin (ص, ط, ق və s.) üstündəki fəthə **«a»** oxunur, nazik hərfin üstündəki fəthə **«ə»**. Misal: صَدِيقٌ sadiqun, طَبِيبٌ tabibun, صَدِيقَةٌ sadiqatun, طَبِيبَةٌ tabibətun (sadiqun yox — sədiqun, təbibun yazma).
 - Ərəb mətnləri **tam hərəkəli** yazılır.
 - Lüğətdə hər söz üçün: ərəbcə (hərəkəli), oxunuşu, mənası, cinsi.
 - Rəng məntiqi (bütün dərslərdə eyni):
@@ -49,6 +50,7 @@ Bu fayldakı qaydalara hər söhbətdə əməl et.
   - Sən (kişi): أَنْتَ əntə (tək), أَنْتُمَا əntumə (ikilik), أَنْتُمْ əntum (cəm).
   - Sən (qadın): أَنْتِ ənti (tək), أَنْتُمَا əntumə (ikilik), أَنْتُنَّ əntunnə (cəm).
   - Mən / Biz (kişi və qadın): أَنَا ənə (tək), نَحْنُ nəhnu (ikilik və cəm).
+- **2-ci dərs — Sual əvəzliyi:** مَنْ (mən) — «kim?». Misallar: مَنْ هُوَ؟ (Mən huvə? — O kimdir?) → هُوَ جَعْفَرٌ (Huvə Cəfərun — O, Cəfərdir); مَنْ أَنْتَ؟ (Mən əntə? — Sən kimsən?) → أَنَا مُعَلِّمٌ (Ənə muəllimun — Mən müəlliməm).
 - **2-ci dərsin lüğəti:** أَبٌ, أَخٌ, جَدٌّ, صَدِيقٌ, طَبِيبٌ (müzəkkər); جَدَّةٌ, صَدِيقَةٌ, طَبِيبَةٌ, اِمْرَأَةٌ, أُخْتٌ (müənnəs).
 
 Yeni dərs hazırlananda bu siyahıya onun qaydalarını da əlavə et ki, növbəti dərslər onlara əsaslana bilsin.
@@ -69,3 +71,4 @@ Yeni dərs hazırlananda bu siyahıya onun qaydalarını da əlavə et ki, növb
 ### Əlavə olunmuş qaydalar (tarixlə)
 
 - 2026-11-25 — Bu fayl yaradıldı; 1-ci dərs `iphone` repozitoriyasından köçürüldü.
+- 2026-11-26 — Oxunuşda qalın hərflərin fəthəsi «a» yazılır (sadiqun, tabibun, sadiqatun, tabibətun).

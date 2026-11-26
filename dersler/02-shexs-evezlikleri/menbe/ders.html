@@ -159,6 +159,13 @@ tr.brow td:first-child { box-shadow: inset 1.2mm 0 var(--gold); }
 .ptbl td.blankcell { width: 62mm; }
 .ptbl td.arc { font-size: 19pt; width: 28mm; line-height: 1.7; }
 .ptbl td.blankcell { border-left: .5pt solid var(--line); }
+.qa { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.dlg { display: flex; flex-direction: column; gap: 2mm; }
+.ln { display: grid; grid-template-columns: 9mm 1fr; gap: 2.5mm; align-items: center; background: rgba(255,255,255,.75); border-radius: 2mm; padding: 2mm 3mm; }
+.ln .who { font-family: var(--head); font-weight: 800; font-size: 8pt; color: var(--muted); }
+.ln .ar { font-size: 24pt; line-height: 1.35; text-align: right; display: block; }
+.ln .rd { font-weight: 600; } .ln .mn { font-size: 9pt; color: #3A4254; }
+.hl { color: var(--gold); }
 </style>
 </head>
 <body>
@@ -178,8 +185,9 @@ tr.brow td:first-child { box-shadow: inset 1.2mm 0 var(--gold); }
       <div><span>01</span><span>Lüğət — 10 yeni söz</span><span class="ar">اَلْمُفْرَدَاتُ</span></div>
       <div><span>02</span><span>Qayda — Şəxs və say</span><span class="ar">اَلْعَدَدُ</span></div>
       <div><span>03</span><span>Qayda — 14 şəxs əvəzliyi</span><span class="ar">اَلضَّمَائِرُ</span></div>
-      <div><span>04</span><span>Çalışmalar</span><span class="ar">اَلتَّمَارِينُ</span></div>
-      <div><span>05</span><span>Cavablar</span><span class="ar">اَلْأَجْوِبَةُ</span></div>
+      <div><span>04</span><span>Sual əvəzliyi — «kim?»</span><span class="ar">مَنْ؟</span></div>
+      <div><span>05</span><span>Çalışmalar</span><span class="ar">اَلتَّمَارِينُ</span></div>
+      <div><span>06</span><span>Cavablar</span><span class="ar">اَلْأَجْوِبَةُ</span></div>
     </div>
     <div class="legend">
       <span style="background:var(--m)">Kişi</span>
@@ -202,11 +210,11 @@ tr.brow td:first-child { box-shadow: inset 1.2mm 0 var(--gold); }
       <tr class="mrow"><td class="n0">1</td><td class="arc">أَبٌ</td><td class="tr">əbun</td><td>ata</td><td><span class="chip m">müzəkkər</span></td></tr>
       <tr class="mrow"><td class="n0">2</td><td class="arc">أَخٌ</td><td class="tr">əxun</td><td>qardaş</td><td><span class="chip m">müzəkkər</span></td></tr>
       <tr class="mrow"><td class="n0">3</td><td class="arc">جَدٌّ</td><td class="tr">cəddun</td><td>baba</td><td><span class="chip m">müzəkkər</span></td></tr>
-      <tr class="mrow"><td class="n0">4</td><td class="arc">صَدِيقٌ</td><td class="tr">sədiqun</td><td>dost (kişi)</td><td><span class="chip m">müzəkkər</span></td></tr>
-      <tr class="mrow"><td class="n0">5</td><td class="arc">طَبِيبٌ</td><td class="tr">təbibun</td><td>həkim (kişi)</td><td><span class="chip m">müzəkkər</span></td></tr>
+      <tr class="mrow"><td class="n0">4</td><td class="arc">صَدِيقٌ</td><td class="tr">sadiqun</td><td>dost (kişi)</td><td><span class="chip m">müzəkkər</span></td></tr>
+      <tr class="mrow"><td class="n0">5</td><td class="arc">طَبِيبٌ</td><td class="tr">tabibun</td><td>həkim (kişi)</td><td><span class="chip m">müzəkkər</span></td></tr>
       <tr class="frow"><td class="n0">6</td><td class="arc">جَدَّةٌ</td><td class="tr">cəddətun</td><td>nənə</td><td><span class="chip f">müənnəs</span></td></tr>
-      <tr class="frow"><td class="n0">7</td><td class="arc">صَدِيقَةٌ</td><td class="tr">sədiqətun</td><td>dost (qadın)</td><td><span class="chip f">müənnəs</span></td></tr>
-      <tr class="frow"><td class="n0">8</td><td class="arc">طَبِيبَةٌ</td><td class="tr">təbibətun</td><td>həkim (qadın)</td><td><span class="chip f">müənnəs</span></td></tr>
+      <tr class="frow"><td class="n0">7</td><td class="arc">صَدِيقَةٌ</td><td class="tr">sadiqatun</td><td>dost (qadın)</td><td><span class="chip f">müənnəs</span></td></tr>
+      <tr class="frow"><td class="n0">8</td><td class="arc">طَبِيبَةٌ</td><td class="tr">tabibətun</td><td>həkim (qadın)</td><td><span class="chip f">müənnəs</span></td></tr>
       <tr class="frow"><td class="n0">9</td><td class="arc">اِمْرَأَةٌ</td><td class="tr">imraətun</td><td>qadın</td><td><span class="chip f">müənnəs</span></td></tr>
       <tr class="frow"><td class="n0">10</td><td class="arc">أُخْتٌ</td><td class="tr">uxtun</td><td>bacı</td><td><span class="chip f">müənnəs · mənaca</span></td></tr>
     </tbody>
@@ -332,9 +340,39 @@ tr.brow td:first-child { box-shadow: inset 1.2mm 0 var(--gold); }
   <div class="foot"><span>Ərəb dili · Dərs 2</span><span>5</span></div>
 </section>
 
+<!-- ═════════════ 6. SUAL ƏVƏZLİYİ ═════════════ -->
+<section class="page">
+  <div class="pagehead"><span class="kicker">04 · Sual əvəzliyi</span><span class="ar">مَنْ؟</span></div>
+  <h2>Sual əvəzliyi <span class="ar">مَنْ؟</span></h2>
+  <p class="lead"><span class="ar">مَنْ</span> <b>(mən)</b> — <b>«kim?»</b> deməkdir. Bu, sual əvəzliyidir. Onunla şəxs əvəzliklərini birlikdə işlədib sual veririk.</p>
+
+  <div class="grid2" style="grid-template-columns: 52mm 1fr; align-items:stretch">
+    <div class="card" style="background:var(--gold-soft); border-color:#E6CE9F; justify-content:center; align-items:center">
+      <div class="big-letter" style="color:var(--gold); font-size:44pt; line-height:1.5">مَنْ</div>
+      <span class="small" style="text-align:center"><b>mən</b> — kim?</span>
+    </div>
+    <div class="note grey" style="align-content:center"><span class="tag">Diqqət</span><span>Ərəbcə <span class="ar">مَنْ</span> <i>mən</i> — «<b>kim</b>» deməkdir. Bunu Azərbaycan dilindəki «mən» sözü ilə qarışdırmayın: ərəbcə «mən» (birinci şəxs) — <span class="ar">أَنَا</span> <i>ənə</i>.</span></div>
+  </div>
+
+  <h3><span class="num">✓</span>Sual və cavab</h3>
+  <div class="qa">
+    <div class="card m dlg">
+      <span class="label">«O kimdir?»</span>
+      <div class="ln"><span class="who">Sual</span><span><span class="ar"><span class="hl">مَنْ</span> هُوَ؟</span><span class="rd">Mən huvə?</span><br><span class="mn">O kimdir?</span></span></div>
+      <div class="ln"><span class="who">Cavab</span><span><span class="ar">هُوَ جَعْفَرٌ.</span><span class="rd">Huvə Cəfərun.</span><br><span class="mn">O, Cəfərdir.</span></span></div>
+    </div>
+    <div class="card m dlg">
+      <span class="label">«Sən kimsən?»</span>
+      <div class="ln"><span class="who">Sual</span><span><span class="ar"><span class="hl">مَنْ</span> أَنْتَ؟</span><span class="rd">Mən əntə?</span><br><span class="mn">Sən kimsən?</span></span></div>
+      <div class="ln"><span class="who">Cavab</span><span><span class="ar">أَنَا مُعَلِّمٌ.</span><span class="rd">Ənə muəllimun.</span><br><span class="mn">Mən müəlliməm.</span></span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Ərəb dili · Dərs 2</span><span>6</span></div>
+</section>
+
 <!-- ═════════════ 6. ÇALIŞMALAR ═════════════ -->
 <section class="page">
-  <div class="pagehead"><span class="kicker">04 · Çalışmalar</span><span class="ar">اَلتَّمَارِينُ</span></div>
+  <div class="pagehead"><span class="kicker">05 · Çalışmalar</span><span class="ar">اَلتَّمَارِينُ</span></div>
   <h2>Çalışmalar <span class="ar">اَلتَّمَارِينُ</span></h2>
 
   <div class="task">
@@ -371,12 +409,12 @@ tr.brow td:first-child { box-shadow: inset 1.2mm 0 var(--gold); }
       <div class="item"><span class="i">10</span><span>sən (1 kişi)</span><span class="blank"></span></div>
     </div>
   </div>
-  <div class="foot"><span>Ərəb dili · Dərs 2</span><span>6</span></div>
+  <div class="foot"><span>Ərəb dili · Dərs 2</span><span>7</span></div>
 </section>
 
 <!-- ═════════════ 7. CAVABLAR ═════════════ -->
 <section class="page">
-  <div class="pagehead"><span class="kicker">05 · Cavablar</span><span class="ar">اَلْأَجْوِبَةُ</span></div>
+  <div class="pagehead"><span class="kicker">06 · Cavablar</span><span class="ar">اَلْأَجْوِبَةُ</span></div>
   <h2>Cavablar <span class="ar">اَلْأَجْوِبَةُ</span></h2>
   <h3><span class="num">1</span>Çalışma 1</h3>
   <table class="full">
@@ -405,7 +443,7 @@ tr.brow td:first-child { box-shadow: inset 1.2mm 0 var(--gold); }
       <div class="item"><span class="i">9</span><span>o (1 qadın)</span><span class="ar">هِيَ</span></div>
       <div class="item"><span class="i">10</span><span>sən (1 kişi)</span><span class="ar">أَنْتَ</span></div>
   </div>
-  <div class="foot"><span>Ərəb dili · Dərs 2</span><span>7</span></div>
+  <div class="foot"><span>Ərəb dili · Dərs 2</span><span>8</span></div>
 </section>
 </body>
 </html>
