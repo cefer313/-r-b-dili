@@ -11,6 +11,8 @@ npm install
 npm run render
 ```
 
+  **Səsləndirmə:** mətn — `video/seslendirme.md`. Səs yazısını `video/ses-xam/` qovluğuna qoyun (ya `01.m4a` … `21.m4a`, ya da hissələr arasında ~2 saniyə pauza olan tək fayl), sonra `node ses-hazirla.mjs` (səsin tembri dəyişdirilir; `derin` və ya `ince`) və `npm run render`. Xam yazı gitə düşmür.
+
 - **`menbe/`** — PDF-in mənbəyi. Dəyişiklik etmək üçün `ders.html`-i redaktə edin və yenidən yaradın:
 
 ```bash

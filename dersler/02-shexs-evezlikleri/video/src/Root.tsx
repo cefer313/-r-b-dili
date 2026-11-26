@@ -1,5 +1,6 @@
 import React from 'react';
-import { Composition, Series } from 'remotion';
+import { Audio, Composition, Series, Sequence, staticFile } from 'remotion';
+import SES from './ses.json';
 import { useFonts } from './kit';
 import { Dialog, Fourteen, Gender, GroupScene, Intro, MeWe, Number3, Outro, Quiz, Same, Summary, Who, Words } from './scenes';
 
@@ -29,13 +30,29 @@ const SCENES: { d: number; el: (d: number) => React.ReactElement }[] = [
   { d: 10 * S, el: (d) => <Words dur={d} part="2 / 2" words={[{ ar: 'جَدَّةٌ', rd: 'cəddətun', mn: 'nənə', g: 'f' }, { ar: 'صَدِيقَةٌ', rd: 'sadiqatun', mn: 'dost (qadın)', g: 'f' }, { ar: 'طَبِيبَةٌ', rd: 'tabibətun', mn: 'həkim (qadın)', g: 'f' }, { ar: 'اِمْرَأَةٌ', rd: 'imraətun', mn: 'qadın', g: 'f' }, { ar: 'أُخْتٌ', rd: 'uxtun', mn: 'bacı', g: 'f', note: 'mənaca' }]} /> },
   { d: 7 * S, el: (d) => <Outro dur={d} /> },
 ];
-export const TOTAL = SCENES.reduce((a, s) => a + s.d, 0);
+// Səs: src/ses.json — hər hissənin müddəti (saniyə), public/ses/NN.mp3 (ses-hazirla.mjs yaradır).
+// Səs səhnənin 0.4-cü saniyəsində başlayır; səhnə səsdən ən azı 1 saniyə uzun olur.
+const VOICE_START = 12;
+const voice = (i: number): number | undefined => (SES as Record<string, number>)[String(i + 1).padStart(2, '0')];
+const sceneLen = (i: number) => {
+  const v = voice(i);
+  return v ? Math.max(SCENES[i].d, VOICE_START + Math.ceil((v + 1) * S)) : SCENES[i].d;
+};
+export const TOTAL = SCENES.reduce((a, _, i) => a + sceneLen(i), 0);
 
 const Video: React.FC = () => {
   useFonts();
   return (
     <Series>
-      {SCENES.map((s, i) => <Series.Sequence key={i} durationInFrames={s.d}>{s.el(s.d)}</Series.Sequence>)}
+      {SCENES.map((s, i) => {
+        const d = sceneLen(i);
+        return (
+          <Series.Sequence key={i} durationInFrames={d}>
+            {s.el(d)}
+            {voice(i) && <Sequence from={VOICE_START} layout="none"><Audio src={staticFile(`ses/${String(i + 1).padStart(2, '0')}.mp3`)} /></Sequence>}
+          </Series.Sequence>
+        );
+      })}
     </Series>
   );
 };
