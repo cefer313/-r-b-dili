@@ -1,0 +1,13 @@
+{
+  "name": "ereb-dili-ders-2",
+  "private": true,
+  "description": "Ərəb dili, 2-ci dərs PDF-inin mənbəyi (HTML → PDF)",
+  "scripts": {
+    "pdf": "node render.js ../erebce-ders-2-shexs-evezlikleri.pdf"
+  },
+  "dependencies": {
+    "@fontsource/amiri": "5.1.1",
+    "@fontsource/inter": "5.1.1",
+    "@fontsource/montserrat": "5.1.1"
+  }
+}

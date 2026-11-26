@@ -34,13 +34,22 @@ Bu fayldakı qaydalara hər söhbətdə əməl et.
 - Lüğətdə hər söz üçün: ərəbcə (hərəkəli), oxunuşu, mənası, cinsi.
 - Rəng məntiqi (bütün dərslərdə eyni):
   - müzəkkər — mavi, müənnəs — çəhrayı;
-  - raf' — yaşıl, cərr — bənövşəyi, nasb — narıncı.
+  - raf' — yaşıl, cərr — bənövşəyi, nasb — narıncı;
+  - say (tək / ikilik / cəm) — rəng yox, nöqtələrlə: ● tək, ●● ikilik, ●●● cəm; "kişi və qadın" üçün olan sözlər — boz.
 - Çalışmalar yalnız keçilmiş qaydalara əsaslanır; hər çalışmanın cavabı cavablar səhifəsində olur.
 
 ## Keçilmiş qaydalar (dərslər üzrə)
 
 - **1-ci dərs — Cins:** 2 cins: müzəkkər (kişi, xüsusi şəkilçisi yoxdur — cinsi sözlə birlikdə əzbərlənir) və müənnəs (qadın, şəkilçisi tə mərbutə ة). Misal: مَدْرَسَةٌ (müənnəs), كِتَابٌ (müzəkkər). Mənaca müənnəs: زَيْنَبُ. İstisnaları müəllim söz əzbərlənərkən deyir.
 - **1-ci dərs — İsmin halı:** 3 hal: Raf'un (adlıq, tənvin-i zəmmə: كِتَابٌ), Cərrun (yiyəlik, tənvin-i kəsrə: كِتَابٍ), Nasbun (təsirli, tənvin-i fəthə: كِتَابًا). Tənvin-i fəthədən sonra əlif yazılır; istisna — tə mərbutə üzərində əlif yazılmır (مَدْرَسَةً).
+- **2-ci dərs — Say:** Azərbaycan dilində say 2 cürdür: tək (1) və cəm (2 və çox). Ərəb dilində say 3 yerə bölünür: tək (1), ikilik (2), cəm (3 və 3-dən yuxarı).
+- **2-ci dərs — Şəxs əvəzlikləri (14):** Azərbaycan dilindən fərqli olaraq ərəb dilində şəxslər kişi və qadın cinsinə bölünür.
+  - O (kişi): هُوَ huvə (tək), هُمَا humə (ikilik), هُمْ hum (cəm).
+  - O (qadın): هِيَ hiyə (tək), هُمَا humə (ikilik), هُنَّ hunnə (cəm).
+  - Sən (kişi): أَنْتَ əntə (tək), أَنْتُمَا əntumə (ikilik), أَنْتُمْ əntum (cəm).
+  - Sən (qadın): أَنْتِ ənti (tək), أَنْتُمَا əntumə (ikilik), أَنْتُنَّ əntunnə (cəm).
+  - Mən / Biz (kişi və qadın): أَنَا ənə (tək), نَحْنُ nəhnu (ikilik və cəm).
+- **2-ci dərsin lüğəti:** أَبٌ, أَخٌ, جَدٌّ, صَدِيقٌ, طَبِيبٌ (müzəkkər); جَدَّةٌ, صَدِيقَةٌ, طَبِيبَةٌ, اِمْرَأَةٌ, أُخْتٌ (müənnəs).
 
 Yeni dərs hazırlananda bu siyahıya onun qaydalarını da əlavə et ki, növbəti dərslər onlara əsaslana bilsin.
 
